@@ -1,0 +1,9 @@
+config.h:#define ENABLE_DEBUG 1
+config.h.in:#undef ENABLE_DEBUG
+config.h.in~:#undef ENABLE_DEBUG
+config.log:#define ENABLE_DEBUG 1
+config.status:D["ENABLE_DEBUG"]=" 1"
+configure:$as_echo "#define ENABLE_DEBUG 1" >>confdefs.h
+configure:$as_echo "#define ENABLE_DEBUG 1" >>confdefs.h
+configure.ac:	AC_DEFINE(ENABLE_DEBUG, 1, [Define to 1 if you want 'debug' support.])
+configure.ac:	AC_DEFINE(ENABLE_DEBUG, 1, [Define to 1 if you want 'debug' support.])

@@ -1,0 +1,1151 @@
+
+dirblock.c,372
+errcode_t ext2fs_read_dir_block2(ext2_filsys fs, blk_t block,ext2fs_read_dir_block224,381
+errcode_t ext2fs_read_dir_block(ext2_filsys fs, blk_t block,ext2fs_read_dir_block63,1505
+errcode_t ext2fs_write_dir_block2(ext2_filsys fs, blk_t block,ext2fs_write_dir_block270,1639
+errcode_t ext2fs_write_dir_block(ext2_filsys fs, blk_t block,ext2fs_write_dir_block112,2773
+
+freefs.c,388
+void ext2fs_free(ext2_filsys fs)ext2fs_free22,402
+static void ext2fs_free_inode_cache(struct ext2_inode_cache *icache)ext2fs_free_inode_cache64,1264
+void ext2fs_u32_list_free(ext2_u32_list bb)ext2fs_u32_list_free79,1586
+void ext2fs_badblocks_list_free(ext2_badblocks_list bb)ext2fs_badblocks_list_free90,1777
+void ext2fs_free_dblist(ext2_dblist dblist)ext2fs_free_dblist99,1920
+
+dblist_dir.c,179
+errcode_t ext2fs_dblist_dir_iterate(ext2_dblist dblist,ext2fs_dblist_dir_iterate26,457
+static int db_dir_proc(ext2_filsys fs, struct ext2_db_entry *db_info,db_dir_proc65,1252
+
+block.c,1165
+struct block_context {block_context21,361
+	ext2_filsys	fs;fs22,384
+	int (*func)(ext2_filsys	fs,func23,401
+	e2_blkcnt_t	bcount;bcount29,546
+	int		bsize;bsize30,567
+	int		flags;flags31,580
+	errcode_t	errcode;errcode32,593
+	char	*ind_buf;ind_buf33,613
+	char	*dind_buf;dind_buf34,629
+	char	*tind_buf;tind_buf35,646
+	void	*priv_data;priv_data36,663
+#define check_for_ro_violation_return(check_for_ro_violation_return39,685
+#define check_for_ro_violation_goto(check_for_ro_violation_goto49,976
+static int block_iterate_ind(blk_t *ind_block, blk_t ref_block,block_iterate_ind59,1271
+static int block_iterate_dind(blk_t *dind_block, blk_t ref_block,block_iterate_dind136,3410
+static int block_iterate_tind(blk_t *tind_block, blk_t ref_block,block_iterate_tind215,5579
+errcode_t ext2fs_block_iterate2(ext2_filsys fs,ext2fs_block_iterate2294,7766
+struct xlate {xlate507,13076
+	int (*func)(ext2_filsys	fs,func508,13091
+	void *real_private;real_private512,13185
+static int xlate_func(ext2_filsys fs, blk_t *blocknr, e2_blkcnt_t blockcnt,xlate_func518,13253
+errcode_t ext2fs_block_iterate(ext2_filsys fs,ext2fs_block_iterate528,13569
+
+gen_bitmap.c,2823
+struct ext2fs_struct_generic_bitmap {ext2fs_struct_generic_bitmap30,483
+	errcode_t	magic;magic31,521
+	ext2_filsys 	fs;fs32,539
+	__u32		start, end;start33,557
+	__u32		start, end;end33,557
+	__u32		real_end;real_end34,577
+	char	*	description;description35,595
+	char	*	bitmap;bitmap36,616
+	errcode_t	base_error_code;base_error_code37,632
+	__u32		reserved[7];reserved38,660
+void ext2fs_warn_bitmap2(ext2fs_generic_bitmap bitmap,ext2fs_warn_bitmap245,799
+static errcode_t check_magic(ext2fs_generic_bitmap bitmap)check_magic57,1102
+errcode_t ext2fs_make_generic_bitmap(errcode_t magic, ext2_filsys fs,ext2fs_make_generic_bitmap66,1390
+errcode_t ext2fs_allocate_generic_bitmap(__u32 start,ext2fs_allocate_generic_bitmap121,2734
+errcode_t ext2fs_copy_generic_bitmap(ext2fs_generic_bitmap src,ext2fs_copy_generic_bitmap131,3004
+void ext2fs_free_generic_bitmap(ext2fs_inode_bitmap bitmap)ext2fs_free_generic_bitmap141,3276
+int ext2fs_test_generic_bitmap(ext2fs_generic_bitmap bitmap,ext2fs_test_generic_bitmap158,3608
+int ext2fs_mark_generic_bitmap(ext2fs_generic_bitmap bitmap,ext2fs_mark_generic_bitmap168,3885
+int ext2fs_unmark_generic_bitmap(ext2fs_generic_bitmap bitmap,ext2fs_unmark_generic_bitmap178,4162
+__u32 ext2fs_get_generic_bitmap_start(ext2fs_generic_bitmap bitmap)ext2fs_get_generic_bitmap_start188,4447
+__u32 ext2fs_get_generic_bitmap_end(ext2fs_generic_bitmap bitmap)ext2fs_get_generic_bitmap_end193,4543
+void ext2fs_clear_generic_bitmap(ext2fs_generic_bitmap bitmap)ext2fs_clear_generic_bitmap198,4635
+errcode_t ext2fs_fudge_generic_bitmap_end(ext2fs_inode_bitmap bitmap,ext2fs_fudge_generic_bitmap_end207,4833
+errcode_t ext2fs_resize_generic_bitmap(errcode_t magic,ext2fs_resize_generic_bitmap221,5131
+errcode_t ext2fs_compare_generic_bitmap(errcode_t magic, errcode_t neq,ext2fs_compare_generic_bitmap264,6129
+void ext2fs_set_generic_bitmap_padding(ext2fs_generic_bitmap map)ext2fs_set_generic_bitmap_padding289,6737
+errcode_t ext2fs_get_generic_bitmap_range(ext2fs_generic_bitmap bmap,ext2fs_get_generic_bitmap_range300,7017
+errcode_t ext2fs_set_generic_bitmap_range(ext2fs_generic_bitmap bmap,ext2fs_set_generic_bitmap_range315,7386
+static int mem_is_zero(const char *mem, size_t len)mem_is_zero334,7863
+static int ext2fs_test_clear_generic_bitmap_range(ext2fs_generic_bitmap bitmap,ext2fs_test_clear_generic_bitmap_range353,8271
+int ext2fs_test_block_bitmap_range(ext2fs_block_bitmap bitmap,ext2fs_test_block_bitmap_range425,9977
+int ext2fs_test_inode_bitmap_range(ext2fs_inode_bitmap bitmap,ext2fs_test_inode_bitmap_range438,10397
+void ext2fs_mark_block_bitmap_range(ext2fs_block_bitmap bitmap,ext2fs_mark_block_bitmap_range451,10817
+void ext2fs_unmark_block_bitmap_range(ext2fs_block_bitmap bitmap,ext2fs_unmark_block_bitmap_range465,11173
+
+finddev.c,471
+struct dir_list {dir_list39,645
+	char	*name;name40,663
+	struct dir_list *next;next41,676
+static void add_to_dirlist(const char *name, struct dir_list **list)add_to_dirlist47,764
+static void free_dirlist(struct dir_list **list)free_dirlist67,1103
+static int scan_dir(char *dirname, dev_t device, struct dir_list **list,scan_dir79,1286
+char *ext2fs_find_block_device(dev_t device)ext2fs_find_block_device127,2424
+int main(int argc, char** argv)main167,3237
+
+alloc_sb.c,86
+int ext2fs_reserve_super_and_bgd(ext2_filsys fs,ext2fs_reserve_super_and_bgd43,1261
+
+inode_io.c,1683
+#define EXT2_CHECK_MAGIC(EXT2_CHECK_MAGIC32,545
+struct inode_private_data {inode_private_data35,635
+	int				magic;magic36,663
+	char				name[32];name37,678
+	ext2_file_t			file;file38,697
+	ext2_filsys			fs;fs39,718
+	ext2_ino_t 			ino;ino40,737
+	struct ext2_inode		inode;inode41,757
+	int				flags;flags42,784
+	struct inode_private_data	*next;next43,799
+#define CHANNEL_HAS_INODE	CHANNEL_HAS_INODE46,837
+static struct inode_private_data *top_intern;top_intern48,871
+static int ino_unique = 0;ino_unique49,917
+static struct struct_io_manager struct_inode_manager = {struct_inode_manager66,1741
+io_manager inode_io_manager = &struct_inode_manager;inode_io_manager82,2018
+errcode_t ext2fs_inode_io_intern2(ext2_filsys fs, ext2_ino_t ino,ext2fs_inode_io_intern284,2072
+errcode_t ext2fs_inode_io_intern(ext2_filsys fs, ext2_ino_t ino,ext2fs_inode_io_intern110,2706
+static errcode_t inode_open(const char *name, int flags, io_channel *channel)inode_open117,2849
+static errcode_t inode_close(io_channel channel)inode_close176,4126
+static errcode_t inode_set_blksize(io_channel channel, int blksize)inode_set_blksize197,4637
+static errcode_t inode_read_blk64(io_channel channel,inode_read_blk64210,4962
+static errcode_t inode_read_blk(io_channel channel, unsigned long block,inode_read_blk230,5539
+static errcode_t inode_write_blk64(io_channel channel,inode_write_blk64236,5703
+static errcode_t inode_write_blk(io_channel channel, unsigned long block,inode_write_blk256,6288
+static errcode_t inode_write_byte(io_channel channel, unsigned long offset,inode_write_byte262,6454
+static errcode_t inode_flush(io_channel channel)inode_flush282,6985
+
+native.c,55
+int ext2fs_native_flag(void)ext2fs_native_flag17,289
+
+csum.c,780
+#define offsetof(offsetof25,464
+#define STATICSTATIC29,548
+#define STATIC STATIC31,569
+STATIC __u16 ext2fs_group_desc_csum(ext2_filsys fs, dgrp_t group)ext2fs_group_desc_csum34,599
+int ext2fs_group_desc_csum_verify(ext2_filsys fs, dgrp_t group)ext2fs_group_desc_csum_verify69,1628
+void ext2fs_group_desc_csum_set(ext2_filsys fs, dgrp_t group)ext2fs_group_desc_csum_set80,1896
+static __u32 find_last_inode_ingrp(ext2fs_inode_bitmap bitmap,find_last_inode_ingrp88,2127
+errcode_t ext2fs_set_gdt_csum(ext2_filsys fs)ext2fs_set_gdt_csum105,2622
+void print_csum(const char *msg, ext2_filsys fs, dgrp_t group)print_csum148,3700
+unsigned char sb_uuid[16] = { 0x4f, 0x25, 0xe8, 0xcf, 0xe7, 0x97, 0x48, 0x23,sb_uuid176,4632
+int main(int argc, char **argv)main179,4770
+
+getsectsize.c,246
+#define _LARGEFILE_SOURCE_LARGEFILE_SOURCE13,260
+#define _LARGEFILE64_SOURCE_LARGEFILE64_SOURCE14,286
+#define BLKSSZGET BLKSSZGET32,600
+errcode_t ext2fs_get_device_sectsize(const char *file, int *sectsize)ext2fs_get_device_sectsize41,771
+
+ext_attr.c,610
+#define NAME_HASH_SHIFT NAME_HASH_SHIFT28,478
+#define VALUE_HASH_SHIFT VALUE_HASH_SHIFT29,504
+__u32 ext2fs_ext_attr_hash_entry(struct ext2_ext_attr_entry *entry, void *data)ext2fs_ext_attr_hash_entry36,616
+#undef NAME_HASH_SHIFTNAME_HASH_SHIFT62,1372
+#undef VALUE_HASH_SHIFTVALUE_HASH_SHIFT63,1395
+errcode_t ext2fs_read_ext_attr(ext2_filsys fs, blk_t block, void *buf)ext2fs_read_ext_attr65,1420
+errcode_t ext2fs_write_ext_attr(ext2_filsys fs, blk_t block, void *inbuf)ext2fs_write_ext_attr78,1729
+errcode_t ext2fs_adjust_ea_refcount(ext2_filsys fs, blk_t blk,ext2fs_adjust_ea_refcount104,2339
+
+ext2_err.c,655
+static const char * const text[] = {text8,108
+struct error_table {error_table149,5842
+    char const * const * msgs;msgs150,5863
+    long base;base151,5894
+    int n_msgs;n_msgs152,5909
+struct et_list {et_list154,5928
+    struct et_list *next;next155,5945
+    const struct error_table * table;table156,5971
+const struct error_table et_ext2_error_table = { text, 2133571328L, 137 };et_ext2_error_table160,6046
+static struct et_list link = { 0, 0 };link162,6122
+void initialize_ext2_error_table(void) {initialize_ext2_error_table167,6262
+void initialize_ext2_error_table_r(struct et_list **list)initialize_ext2_error_table_r172,6384
+
+check_desc.c,69
+errcode_t ext2fs_check_desc(ext2_filsys fs)ext2fs_check_desc32,576
+
+swapfs.c,680
+void ext2fs_swap_super(struct ext2_super_block * sb)ext2fs_swap_super25,488
+void ext2fs_swap_group_desc(struct ext2_group_desc *gdp)ext2fs_swap_group_desc82,3445
+void ext2fs_swap_ext_attr_header(struct ext2_ext_attr_header *to_header,ext2fs_swap_ext_attr_header95,4060
+void ext2fs_swap_ext_attr_entry(struct ext2_ext_attr_entry *to_entry,ext2fs_swap_ext_attr_entry109,4545
+void ext2fs_swap_ext_attr(char *to, char *from, int bufsize, int has_header)ext2fs_swap_ext_attr118,4924
+void ext2fs_swap_inode_full(ext2_filsys fs, struct ext2_inode_large *t,ext2fs_swap_inode_full147,5882
+void ext2fs_swap_inode(ext2_filsys fs, struct ext2_inode *t,ext2fs_swap_inode266,9685
+
+bitops.c,315
+int ext2fs_set_bit(unsigned int nr,void * addr)ext2fs_set_bit33,797
+int ext2fs_clear_bit(unsigned int nr, void * addr)ext2fs_clear_bit45,1018
+int ext2fs_test_bit(unsigned int nr, const void * addr)ext2fs_test_bit57,1243
+void ext2fs_warn_bitmap(errcode_t errcode, unsigned long arg,ext2fs_warn_bitmap69,1483
+
+closefs.c,604
+static int test_root(int a, int b)test_root24,392
+int ext2fs_bg_has_super(ext2_filsys fs, int group_block)ext2fs_bg_has_super37,539
+int ext2fs_super_and_bgd_loc(ext2_filsys fs,ext2fs_super_and_bgd_loc63,1493
+static errcode_t write_primary_superblock(ext2_filsys fs,write_primary_superblock142,3611
+void ext2fs_update_dynamic_rev(ext2_filsys fs)ext2fs_update_dynamic_rev186,4816
+static errcode_t write_backup_super(ext2_filsys fs, dgrp_t group,write_backup_super200,5175
+errcode_t ext2fs_flush(ext2_filsys fs)ext2fs_flush219,5653
+errcode_t ext2fs_close(ext2_filsys fs)ext2fs_close372,9901
+
+alloc_stats.c,408
+void ext2fs_inode_alloc_stats2(ext2_filsys fs, ext2_ino_t ino,ext2fs_inode_alloc_stats218,291
+void ext2fs_inode_alloc_stats(ext2_filsys fs, ext2_ino_t ino, int inuse)ext2fs_inode_alloc_stats59,1599
+void ext2fs_block_alloc_stats(ext2_filsys fs, blk_t blk, int inuse)ext2fs_block_alloc_stats64,1724
+void ext2fs_set_block_alloc_stats_callback(ext2_filsys fs,ext2fs_set_block_alloc_stats_callback90,2471
+
+ismounted.c,681
+static errcode_t check_mntent_file(const char *mtab_file, const char *file,check_mntent_file45,893
+#define TEST_FILE TEST_FILE152,3898
+static errcode_t check_mntent(const char *file, int *mount_flags,check_mntent168,4205
+#define MOUNTED MOUNTED187,4708
+static errcode_t check_getmntinfo(const char *file, int *mount_flags,check_getmntinfo200,4976
+static int is_swap_device(const char *file)is_swap_device240,5929
+errcode_t ext2fs_check_mount_point(const char *device, int *mount_flags,ext2fs_check_mount_point293,7217
+errcode_t ext2fs_check_if_mounted(const char *file, int *mount_flags)ext2fs_check_if_mounted340,8299
+int main(int argc, char **argv)main346,8449
+
+inline.c,57
+#define INCLUDE_INLINE_FUNCSINCLUDE_INLINE_FUNCS30,593
+
+unix_io.c,2925
+#define _LARGEFILE_SOURCE_LARGEFILE_SOURCE18,430
+#define _LARGEFILE64_SOURCE_LARGEFILE64_SOURCE19,456
+#define BLKROGET BLKROGET53,1048
+#define EXT2_CHECK_MAGIC(EXT2_CHECK_MAGIC64,1249
+struct unix_cache {unix_cache67,1339
+	char		*buf;buf68,1359
+	unsigned long	block;block69,1372
+	int		access_time;access_time70,1394
+	unsigned	dirty:1;dirty71,1413
+	unsigned	in_use:1;in_use72,1432
+#define CACHE_SIZE CACHE_SIZE75,1456
+#define WRITE_DIRECT_SIZE WRITE_DIRECT_SIZE76,1477
+#define READ_DIRECT_SIZE READ_DIRECT_SIZE77,1543
+struct unix_private_data {unix_private_data79,1611
+	int	magic;magic80,1638
+	int	dev;dev81,1650
+	int	flags;flags82,1660
+	int	access_time;access_time83,1672
+	ext2_loff_t offset;offset84,1690
+	struct unix_cache cache[CACHE_SIZE];cache85,1711
+	struct struct_io_stats io_stats;io_stats86,1749
+#define NEED_BOUNCE_BUFFERNEED_BOUNCE_BUFFER112,3091
+#undef NEED_BOUNCE_BUFFERNEED_BOUNCE_BUFFER114,3124
+static struct struct_io_manager struct_unix_manager = {struct_unix_manager117,3158
+io_manager unix_io_manager = &struct_unix_manager;unix_io_manager137,3489
+static errcode_t unix_get_stats(io_channel channel, io_stats *stats)unix_get_stats139,3541
+static errcode_t raw_read_blk(io_channel channel,raw_read_blk159,3970
+static errcode_t raw_read_blk(io_channel channel,raw_read_blk197,5035
+#define BLOCKALIGN BLOCKALIGN206,5292
+static errcode_t raw_write_blk(io_channel channel,raw_write_blk251,6535
+static errcode_t alloc_cache(io_channel channel,alloc_cache298,7573
+static void free_cache(struct unix_private_data *data)free_cache319,8038
+static struct unix_cache *find_cached_block(struct unix_private_data *data,find_cached_block342,8582
+static void reuse_cache(io_channel channel, struct unix_private_data *data,reuse_cache372,9336
+static errcode_t flush_cached_blocks(io_channel channel,flush_cached_blocks387,9722
+static errcode_t unix_open(const char *name, int flags, io_channel *channel)unix_open418,10297
+#undef RLIM_INFINITYRLIM_INFINITY491,11967
+#define RLIM_INFINITY	RLIM_INFINITY493,12082
+static errcode_t unix_close(io_channel channel)unix_close539,13276
+static errcode_t unix_set_blksize(io_channel channel, int blksize)unix_set_blksize567,13917
+static errcode_t unix_read_blk64(io_channel channel, unsigned long long block,unix_read_blk64591,14486
+static errcode_t unix_read_blk(io_channel channel, unsigned long block,unix_read_blk656,16206
+static errcode_t unix_write_blk64(io_channel channel, unsigned long long block,unix_write_blk64662,16368
+static errcode_t unix_write_blk(io_channel channel, unsigned long block,unix_write_blk714,17823
+static errcode_t unix_write_byte(io_channel channel, unsigned long offset,unix_write_byte720,17987
+static errcode_t unix_flush(io_channel channel)unix_flush754,18819
+static errcode_t unix_set_option(io_channel channel, const char *option,unix_set_option771,19237
+
+link.c,482
+struct link_struct  {link_struct21,347
+	ext2_filsys	fs;fs22,369
+	const char	*name;name23,386
+	int		namelen;namelen24,405
+	ext2_ino_t	inode;inode25,420
+	int		flags;flags26,439
+	int		done;done27,452
+	unsigned int	blocksize;blocksize28,464
+	errcode_t	err;err29,489
+	struct ext2_super_block *sb;sb30,505
+static int link_proc(struct ext2_dir_entry *dirent,link_proc33,539
+errcode_t ext2fs_link(ext2_filsys fs, ext2_ino_t dir, const char *name,ext2fs_link111,2707
+
+getsize.c,703
+#define _LARGEFILE_SOURCE_LARGEFILE_SOURCE15,321
+#define _LARGEFILE64_SOURCE_LARGEFILE64_SOURCE16,347
+#define BLKGETSIZE BLKGETSIZE52,998
+#define BLKGETSIZE64 BLKGETSIZE6456,1129
+#define BLKGETSIZE BLKGETSIZE60,1245
+#define HAVE_GET_FILE_SIZE_EX HAVE_GET_FILE_SIZE_EX71,1470
+errcode_t ext2fs_get_device_size(const char *file, int blocksize,ext2fs_get_device_size74,1510
+static int valid_offset (int fd, ext2_loff_t offset)valid_offset129,2847
+errcode_t ext2fs_get_device_size2(const char *file, int blocksize,ext2fs_get_device_size2143,3073
+errcode_t ext2fs_get_device_size(const char *file, int blocksize,ext2fs_get_device_size278,5804
+int main(int argc, char **argv)main296,6145
+
+dirhash.c,775
+#define DELTA DELTA31,625
+static void TEA_transform(__u32 buf[4], __u32 const in[])TEA_transform33,651
+#define F(F51,1066
+#define G(G52,1113
+#define H(H53,1168
+#define ROUND(ROUND61,1475
+#define K1 K163,1565
+#define K2 K264,1578
+#define K3 K365,1604
+static void halfMD4Transform (__u32 buf[4], __u32 const in[])halfMD4Transform70,1704
+#undef ROUNDROUND110,2867
+#undef FF111,2880
+#undef GG112,2889
+#undef HH113,2898
+#undef K1K1114,2907
+#undef K2K2115,2917
+#undef K3K3116,2927
+static ext2_dirhash_t dx_hack_hash (const char *name, int len,dx_hack_hash119,2964
+static void str2hashbuf(const char *msg, int len, __u32 *buf, int num,str2hashbuf141,3466
+errcode_t ext2fs_dirhash(int version, const char *name, int len,ext2fs_dirhash189,4622
+
+openfs.c,571
+blk_t ext2fs_descriptor_block_loc(ext2_filsys fs, blk_t group_block, dgrp_t i)ext2fs_descriptor_block_loc34,531
+errcode_t ext2fs_open(const char *name, int flags, int superblock,ext2fs_open63,1516
+errcode_t ext2fs_open2(const char *name, const char *io_options,ext2fs_open282,2148
+errcode_t ext2fs_get_data_io(ext2_filsys fs, io_channel *old_io)ext2fs_get_data_io372,10453
+errcode_t ext2fs_set_data_io(ext2_filsys fs, io_channel new_io)ext2fs_set_data_io382,10682
+errcode_t ext2fs_rewrite_to_io(ext2_filsys fs, io_channel new_io)ext2fs_rewrite_to_io390,10883
+
+dblist.c,1096
+errcode_t ext2fs_get_num_dirs(ext2_filsys fs, ext2_ino_t *ret_num_dirs)ext2fs_get_num_dirs30,583
+static errcode_t make_dblist(ext2_filsys fs, ext2_ino_t size, ext2_ino_t count,make_dblist57,1225
+errcode_t ext2fs_init_dblist(ext2_filsys fs, ext2_dblist *ret_dblist)ext2fs_init_dblist111,2451
+errcode_t ext2fs_copy_dblist(ext2_dblist src, ext2_dblist *dest)ext2fs_copy_dblist132,2784
+errcode_t ext2fs_add_dir_block(ext2_dblist dblist, ext2_ino_t ino, blk_t blk,ext2fs_add_dir_block156,3195
+errcode_t ext2fs_set_dir_block(ext2_dblist dblist, ext2_ino_t ino, blk_t blk,ext2fs_set_dir_block189,4015
+void ext2fs_dblist_sort(ext2_dblist dblist,ext2fs_dblist_sort207,4416
+errcode_t ext2fs_dblist_iterate(ext2_dblist dblist,ext2fs_dblist_iterate221,4756
+static EXT2_QSORT_TYPE dir_block_cmp(const void *a, const void *b)dir_block_cmp242,5218
+int ext2fs_dblist_count(ext2_dblist dblist)ext2fs_dblist_count258,5624
+errcode_t ext2fs_dblist_get_last(ext2_dblist dblist,ext2fs_dblist_get_last263,5702
+errcode_t ext2fs_dblist_drop_last(ext2_dblist dblist)ext2fs_dblist_drop_last276,5977
+
+namei.c,597
+static errcode_t follow_link(ext2_filsys fs, ext2_ino_t root, ext2_ino_t dir,follow_link27,581
+static errcode_t dir_namei(ext2_filsys fs, ext2_ino_t root, ext2_ino_t dir,dir_namei75,1910
+static errcode_t open_namei(ext2_filsys fs, ext2_ino_t root, ext2_ino_t base,open_namei113,2749
+errcode_t ext2fs_namei(ext2_filsys fs, ext2_ino_t root, ext2_ino_t cwd,ext2fs_namei150,3770
+errcode_t ext2fs_namei_follow(ext2_filsys fs, ext2_ino_t root, ext2_ino_t cwd,ext2fs_namei_follow169,4179
+errcode_t ext2fs_follow_link(ext2_filsys fs, ext2_ino_t root, ext2_ino_t cwd,ext2fs_follow_link188,4595
+
+test_io.c,3095
+#define PR_GET_DUMPABLE PR_GET_DUMPABLE28,488
+#define EXT2_CHECK_MAGIC(EXT2_CHECK_MAGIC41,692
+struct test_private_data {test_private_data44,782
+	int	magic;magic45,809
+	io_channel real;real46,821
+	int flags;flags47,839
+	FILE *outfile;outfile48,851
+	unsigned long block;block49,867
+	int read_abort_count, write_abort_count;read_abort_count50,889
+	int read_abort_count, write_abort_count;write_abort_count50,889
+	void (*read_blk)(unsigned long block, int count, errcode_t err);read_blk51,931
+	void (*write_blk)(unsigned long block, int count, errcode_t err);write_blk52,997
+	void (*set_blksize)(int blksize, errcode_t err);set_blksize53,1064
+	void (*write_byte)(unsigned long block, int count, errcode_t err);write_byte54,1114
+	void (*read_blk64)(unsigned long long block, int count, errcode_t err);read_blk6455,1182
+	void (*write_blk64)(unsigned long long block, int count, errcode_t err);write_blk6456,1255
+static struct struct_io_manager struct_test_manager = {struct_test_manager78,2294
+io_manager test_io_manager = &struct_test_manager;test_io_manager94,2582
+io_manager test_io_backing_manager = 0;test_io_backing_manager100,2740
+void (*test_io_cb_read_blk)test_io_cb_read_blk101,2780
+void (*test_io_cb_write_blk)test_io_cb_write_blk103,2862
+void (*test_io_cb_read_blk64)test_io_cb_read_blk64105,2945
+void (*test_io_cb_write_blk64)test_io_cb_write_blk64107,3034
+void (*test_io_cb_set_blksize)test_io_cb_set_blksize109,3124
+void (*test_io_cb_write_byte)test_io_cb_write_byte111,3190
+#define TEST_FLAG_READ	TEST_FLAG_READ117,3296
+#define TEST_FLAG_WRITE	TEST_FLAG_WRITE118,3326
+#define TEST_FLAG_SET_BLKSIZE	TEST_FLAG_SET_BLKSIZE119,3357
+#define TEST_FLAG_FLUSH	TEST_FLAG_FLUSH120,3393
+#define TEST_FLAG_DUMP	TEST_FLAG_DUMP121,3424
+#define TEST_FLAG_SET_OPTION	TEST_FLAG_SET_OPTION122,3454
+static void test_dump_block(io_channel channel,test_dump_block124,3490
+static void test_abort(io_channel channel, unsigned long block)test_abort144,4035
+static char *safe_getenv(const char *arg)safe_getenv158,4331
+static errcode_t test_open(const char *name, int flags, io_channel *channel)test_open179,4756
+static errcode_t test_close(io_channel channel)test_close259,6880
+static errcode_t test_set_blksize(io_channel channel, int blksize)test_set_blksize284,7477
+static errcode_t test_read_blk(io_channel channel, unsigned long block,test_read_blk306,8125
+static errcode_t test_write_blk(io_channel channel, unsigned long block,test_write_blk333,8981
+static errcode_t test_read_blk64(io_channel channel, unsigned long long block,test_read_blk64360,9850
+static errcode_t test_write_blk64(io_channel channel, unsigned long long block,test_write_blk64387,10722
+static errcode_t test_write_byte(io_channel channel, unsigned long offset,test_write_byte414,11607
+static errcode_t test_flush(io_channel channel)test_flush438,12359
+static errcode_t test_set_option(io_channel channel, const char *option,test_set_option457,12854
+static errcode_t test_get_stats(io_channel channel, io_stats *stats)test_get_stats484,13681
+
+fileio.c,2198
+#define EXT2_FILE_SHARED_INODE EXT2_FILE_SHARED_INODE21,347
+struct ext2_file {ext2_file23,386
+	errcode_t		magic;magic24,405
+	ext2_filsys 		fs;fs25,424
+	ext2_ino_t		ino;ino26,443
+	struct ext2_inode	*inode;inode27,461
+	int 			flags;flags28,488
+	__u64			pos;pos29,503
+	blk_t			blockno;blockno30,517
+	blk_t			physblock;physblock31,535
+	char 			*buf;buf32,555
+#define BMAP_BUFFER BMAP_BUFFER35,574
+errcode_t ext2fs_file_open2(ext2_filsys fs, ext2_ino_t ino,ext2fs_file_open237,623
+errcode_t ext2fs_file_open(ext2_filsys fs, ext2_ino_t ino,ext2fs_file_open94,1944
+ext2_filsys ext2fs_file_get_fs(ext2_file_t file)ext2fs_file_get_fs103,2208
+errcode_t ext2fs_file_flush(ext2_file_t file)ext2fs_file_flush114,2421
+static errcode_t sync_buffer_position(ext2_file_t file)sync_buffer_position152,3272
+#define DONTFILL DONTFILL176,3886
+static errcode_t load_buffer(ext2_file_t file, int dontfill)load_buffer177,3905
+errcode_t ext2fs_file_close2 (ext2_file_t file, void (*close_callback) (struct ext2_inode *inode, int flags))ext2fs_file_close2204,4501
+errcode_t ext2fs_file_close(ext2_file_t file)ext2fs_file_close225,5000
+errcode_t ext2fs_file_read(ext2_file_t file, void *buf,ext2fs_file_read230,5091
+errcode_t ext2fs_file_write(ext2_file_t file, const void *buf,ext2fs_file_write272,5902
+errcode_t ext2fs_file_llseek(ext2_file_t file, __u64 offset,ext2fs_file_llseek318,6831
+errcode_t ext2fs_file_lseek(ext2_file_t file, ext2_off_t offset,ext2fs_file_lseek338,7269
+errcode_t ext2fs_file_get_lsize(ext2_file_t file, __u64 *ret_size)ext2fs_file_get_lsize355,7662
+ext2_off_t ext2fs_file_get_size(ext2_file_t file)ext2fs_file_get_size366,7940
+struct truncate_st {truncate_st377,8112
+	__u32 fileblkcount;fileblkcount378,8133
+	__u32 newblksize;newblksize379,8154
+	__u8 okind;okind380,8173
+	__u8 okdind;okdind381,8186
+	__u8 oktind;oktind382,8200
+static int truncate_blocks (ext2_filsys fs, blk_t *blocknr, int blockcnt, void *private)truncate_blocks385,8218
+errcode_t ext2fs_file_set_lsize(ext2_file_t file, __u64 size)ext2fs_file_set_lsize434,9241
+errcode_t ext2fs_file_set_size(ext2_file_t file, ext2_off_t size)ext2fs_file_set_size480,10520
+
+get_pathname.c,490
+struct get_pathname_struct {get_pathname_struct30,704
+	ext2_ino_t	search_ino;search_ino31,733
+	ext2_ino_t	parent;parent32,757
+	char		*name;name33,777
+	errcode_t	errcode;errcode34,791
+static int get_pathname_proc(struct ext2_dir_entry *dirent,get_pathname_proc40,858
+static errcode_t ext2fs_get_pathname_int(ext2_filsys fs, ext2_ino_t dir,ext2fs_get_pathname_int68,1615
+errcode_t ext2fs_get_pathname(ext2_filsys fs, ext2_ino_t dir, ext2_ino_t ino,ext2fs_get_pathname140,2995
+
+version.c,314
+static const char *lib_version = E2FSPROGS_VERSION;lib_version26,410
+static const char *lib_date = E2FSPROGS_DATE;lib_date27,462
+int ext2fs_parse_version_string(const char *ver_string)ext2fs_parse_version_string29,509
+int ext2fs_get_library_version(const char **ver_string,ext2fs_get_library_version49,828
+
+undo_io.c,2398
+#define _LARGEFILE_SOURCE_LARGEFILE_SOURCE14,360
+#define _LARGEFILE64_SOURCE_LARGEFILE64_SOURCE15,386
+#define ATTR(ATTR48,883
+#define ATTR(ATTR50,922
+#define EXT2_CHECK_MAGIC(EXT2_CHECK_MAGIC57,997
+struct undo_private_data {undo_private_data60,1087
+	int	magic;magic61,1114
+	TDB_CONTEXT *tdb;tdb62,1126
+	char *tdb_file;tdb_file63,1145
+	io_channel real;real66,1193
+	int tdb_data_size;tdb_data_size68,1212
+	int tdb_written;tdb_written69,1232
+	ext2_loff_t offset;offset72,1296
+static struct struct_io_manager struct_undo_manager = {struct_undo_manager88,1983
+io_manager undo_io_manager = &struct_undo_manager;undo_io_manager101,2216
+static io_manager undo_io_backing_manager ;undo_io_backing_manager102,2267
+static char *tdb_file;tdb_file103,2311
+static int actual_size;actual_size104,2334
+static unsigned char mtime_key[] = "filesystem MTIME";mtime_key106,2359
+static unsigned char blksize_key[] = "filesystem BLKSIZE";blksize_key107,2414
+static unsigned char uuid_key[] = "filesystem UUID";uuid_key108,2473
+errcode_t set_undo_io_backing_manager(io_manager manager)set_undo_io_backing_manager110,2527
+errcode_t set_undo_io_backup_file(char *file_name)set_undo_io_backup_file119,2690
+static errcode_t write_file_system_identity(io_channel undo_channel,write_file_system_identity130,2846
+static errcode_t write_block_size(TDB_CONTEXT *tdb, int block_size)write_block_size176,4089
+static errcode_t undo_write_tdb(io_channel channel,undo_write_tdb194,4513
+				    int actual,actual332,8011
+				    errcode_t error ATTR((unused)))error333,8031
+static void undo_err_handler_init(io_channel channel)undo_err_handler_init339,8114
+static errcode_t undo_open(const char *name, int flags, io_channel *channel)undo_open344,8216
+static errcode_t undo_close(io_channel channel)undo_close412,9744
+static errcode_t undo_set_blksize(io_channel channel, int blksize)undo_set_blksize439,10448
+static errcode_t undo_read_blk(io_channel channel, unsigned long block,undo_read_blk460,10980
+static errcode_t undo_write_blk(io_channel channel, unsigned long block,undo_write_blk476,11414
+static errcode_t undo_write_byte(io_channel channel, unsigned long offset,undo_write_byte497,11989
+static errcode_t undo_flush(io_channel channel)undo_flush531,13042
+static errcode_t undo_set_option(io_channel channel, const char *option,undo_set_option546,13398
+
+inode.c,2645
+struct ext2_struct_inode_scan {ext2_struct_inode_scan34,577
+	errcode_t		magic;magic35,609
+	ext2_filsys		fs;fs36,628
+	ext2_ino_t		current_inode;current_inode37,646
+	blk_t			current_block;current_block38,674
+	dgrp_t			current_group;current_group39,698
+	ext2_ino_t		inodes_left;inodes_left40,723
+	blk_t			blocks_left;blocks_left41,749
+	dgrp_t			groups_left;groups_left42,771
+	blk_t			inode_buffer_blocks;inode_buffer_blocks43,794
+	char *			inode_buffer;inode_buffer44,824
+	int			inode_size;inode_size45,848
+	char *			ptr;ptr46,867
+	int			bytes_left;bytes_left47,882
+	char			*temp_buffer;temp_buffer48,901
+	errcode_t		(*done_group)(ext2_filsys fs,done_group49,923
+	void *			done_group_data;done_group_data53,1053
+	int			bad_block_ptr;bad_block_ptr54,1080
+	int			scan_flags;scan_flags55,1102
+	int			reserved[6];reserved56,1121
+errcode_t ext2fs_flush_icache(ext2_filsys fs)ext2fs_flush_icache62,1202
+static errcode_t create_icache(ext2_filsys fs)create_icache76,1410
+errcode_t ext2fs_open_inode_scan(ext2_filsys fs, int buffer_blocks,ext2fs_open_inode_scan108,2180
+void ext2fs_close_inode_scan(ext2_inode_scan scan)ext2fs_close_inode_scan186,4546
+void ext2fs_set_inode_callback(ext2_inode_scan scan,ext2fs_set_inode_callback199,4836
+int ext2fs_inode_scan_flags(ext2_inode_scan scan, int set_flags,ext2fs_inode_scan_flags213,5213
+static errcode_t get_next_blockgroup(ext2_inode_scan scan)get_next_blockgroup231,5629
+errcode_t ext2fs_inode_scan_goto_blockgroup(ext2_inode_scan scan,ext2fs_inode_scan_goto_blockgroup259,6367
+static errcode_t check_for_inode_bad_blocks(ext2_inode_scan scan,check_for_inode_bad_blocks274,6774
+static errcode_t get_next_blocks(ext2_inode_scan scan)get_next_blocks332,8550
+errcode_t ext2fs_get_next_inode_full(ext2_inode_scan scan, ext2_ino_t *ino,ext2fs_get_next_inode_full407,10437
+errcode_t ext2fs_get_next_inode(ext2_inode_scan scan, ext2_ino_t *ino,ext2fs_get_next_inode515,13253
+errcode_t ext2fs_read_inode_full(ext2_filsys fs, ext2_ino_t ino,ext2fs_read_inode_full525,13500
+errcode_t ext2fs_read_inode(ext2_filsys fs, ext2_ino_t ino,ext2fs_read_inode624,16332
+errcode_t ext2fs_write_inode_full(ext2_filsys fs, ext2_ino_t ino,ext2fs_write_inode_full631,16511
+errcode_t ext2fs_write_inode(ext2_filsys fs, ext2_ino_t ino,ext2fs_write_inode742,19201
+errcode_t ext2fs_write_new_inode(ext2_filsys fs, ext2_ino_t ino,ext2fs_write_new_inode753,19530
+errcode_t ext2fs_get_blocks(ext2_filsys fs, ext2_ino_t ino, blk_t *blocks)ext2fs_get_blocks792,20441
+errcode_t ext2fs_check_directory(ext2_filsys fs, ext2_ino_t ino)ext2fs_check_directory815,20938
+
+expanddir.c,289
+struct expand_dir_struct {expand_dir_struct23,393
+	int		done;done24,420
+	int		newblocks;newblocks25,432
+	errcode_t	err;err26,449
+static int expand_dir_proc(ext2_filsys	fs,expand_dir_proc29,469
+errcode_t ext2fs_expand_dir(ext2_filsys fs, ext2_ino_t dir)ext2fs_expand_dir83,1686
+
+alloc.c,650
+static void check_block_uninit(ext2_filsys fs, ext2fs_block_bitmap map,check_block_uninit32,559
+static void check_inode_uninit(ext2_filsys fs, ext2fs_inode_bitmap map,check_inode_uninit78,2066
+errcode_t ext2fs_new_inode(ext2_filsys fs, ext2_ino_t dir,ext2fs_new_inode102,2771
+errcode_t ext2fs_new_block(ext2_filsys fs, blk_t goal,ext2fs_new_block149,3993
+errcode_t ext2fs_alloc_block(ext2_filsys fs, blk_t goal,ext2fs_alloc_block188,5004
+errcode_t ext2fs_get_free_blocks(ext2_filsys fs, blk_t start, blk_t finish,ext2fs_get_free_blocks235,5866
+void ext2fs_set_alloc_block_callback(ext2_filsys fs,ext2fs_set_alloc_block_callback264,6489
+
+initialize.c,529
+#define CREATOR_OS CREATOR_OS33,646
+#define CREATOR_OS CREATOR_OS36,735
+#define CREATOR_OS CREATOR_OS39,826
+#define CREATOR_OS CREATOR_OS42,916
+#define CREATOR_OS CREATOR_OS44,955
+#undef EXT2_DFL_CHECKINTERVALEXT2_DFL_CHECKINTERVAL59,1596
+#define EXT2_DFL_CHECKINTERVAL EXT2_DFL_CHECKINTERVAL61,1633
+static unsigned int calc_reserved_gdt_blocks(ext2_filsys fs)calc_reserved_gdt_blocks68,1910
+errcode_t ext2fs_initialize(const char *name, int flags,ext2fs_initialize94,2769
+#define set_field(set_field147,4078
+
+crc16.c,152
+static __u16 const crc16_table[256] = {crc16_table16,326
+crc16_t ext2fs_crc16(crc16_t crc, const void *buffer, unsigned int len)ext2fs_crc1659,2658
+
+io_manager.c,422
+errcode_t io_channel_set_options(io_channel channel, const char *opts)io_channel_set_options22,320
+errcode_t io_channel_write_byte(io_channel channel, unsigned long offset,io_channel_write_byte59,993
+errcode_t io_channel_read_blk64(io_channel channel, unsigned long long block,io_channel_read_blk6471,1306
+errcode_t io_channel_write_blk64(io_channel channel, unsigned long long block,io_channel_write_blk6487,1752
+
+mkjournal.c,1141
+errcode_t ext2fs_create_journal_superblock(ext2_filsys fs,ext2fs_create_journal_superblock46,801
+static errcode_t write_journal_file(ext2_filsys fs, char *filename,write_journal_file94,2045
+#define STRIDE_LENGTH STRIDE_LENGTH149,3388
+errcode_t ext2fs_zero_blocks(ext2_filsys fs, blk_t blk, int num,ext2fs_zero_blocks150,3412
+struct mkjournal_struct {mkjournal_struct200,4464
+	int		num_blocks;num_blocks201,4490
+	int		newblocks;newblocks202,4508
+	blk_t		goal;goal203,4525
+	blk_t		blk_to_zero;blk_to_zero204,4539
+	int		zero_count;zero_count205,4560
+	char		*buf;buf206,4578
+	errcode_t	err;err207,4591
+static int mkjournal_proc(ext2_filsys	fs,mkjournal_proc210,4611
+static errcode_t write_journal_inode(ext2_filsys fs, ext2_ino_t journal_ino,write_journal_inode276,5997
+int ext2fs_default_journal_size(__u64 blocks)ext2fs_default_journal_size378,8890
+errcode_t ext2fs_add_journal_device(ext2_filsys fs, ext2_filsys journal_dev)ext2fs_add_journal_device396,9214
+errcode_t ext2fs_add_journal_inode(ext2_filsys fs, blk_t size, int flags)ext2fs_add_journal_inode458,11048
+main(int argc, char **argv)main542,12946
+
+unlink.c,377
+struct link_struct  {link_struct21,355
+	const char	*name;name22,377
+	int		namelen;namelen23,396
+	ext2_ino_t	inode;inode24,411
+	int		flags;flags25,430
+	struct ext2_dir_entry *prev;prev26,443
+	int		done;done27,473
+static int unlink_proc(struct ext2_dir_entry *dirent,unlink_proc33,532
+errcode_t ext2fs_unlink(ext2_filsys fs, ext2_ino_t dir,ext2fs_unlink70,1289
+
+bitmaps.c,1773
+void ext2fs_free_inode_bitmap(ext2fs_inode_bitmap bitmap)ext2fs_free_inode_bitmap30,536
+void ext2fs_free_block_bitmap(ext2fs_block_bitmap bitmap)ext2fs_free_block_bitmap35,636
+errcode_t ext2fs_copy_bitmap(ext2fs_generic_bitmap src,ext2fs_copy_bitmap40,736
+void ext2fs_set_bitmap_padding(ext2fs_generic_bitmap map)ext2fs_set_bitmap_padding46,883
+errcode_t ext2fs_allocate_inode_bitmap(ext2_filsys fs,ext2fs_allocate_inode_bitmap51,987
+errcode_t ext2fs_allocate_block_bitmap(ext2_filsys fs,ext2fs_allocate_block_bitmap70,1483
+errcode_t ext2fs_fudge_inode_bitmap_end(ext2fs_inode_bitmap bitmap,ext2fs_fudge_inode_bitmap_end90,2025
+errcode_t ext2fs_fudge_block_bitmap_end(ext2fs_block_bitmap bitmap,ext2fs_fudge_block_bitmap_end100,2278
+void ext2fs_clear_inode_bitmap(ext2fs_inode_bitmap bitmap)ext2fs_clear_inode_bitmap109,2520
+void ext2fs_clear_block_bitmap(ext2fs_block_bitmap bitmap)ext2fs_clear_block_bitmap114,2622
+errcode_t ext2fs_resize_inode_bitmap(__u32 new_end, __u32 new_real_end,ext2fs_resize_inode_bitmap119,2724
+errcode_t ext2fs_resize_block_bitmap(__u32 new_end, __u32 new_real_end,ext2fs_resize_block_bitmap126,2943
+errcode_t ext2fs_compare_block_bitmap(ext2fs_block_bitmap bm1,ext2fs_compare_block_bitmap133,3162
+errcode_t ext2fs_compare_inode_bitmap(ext2fs_inode_bitmap bm1,ext2fs_compare_inode_bitmap141,3392
+errcode_t ext2fs_set_inode_bitmap_range(ext2fs_inode_bitmap bmap,ext2fs_set_inode_bitmap_range149,3622
+errcode_t ext2fs_get_inode_bitmap_range(ext2fs_inode_bitmap bmap,ext2fs_get_inode_bitmap_range158,3854
+errcode_t ext2fs_set_block_bitmap_range(ext2fs_block_bitmap bmap,ext2fs_set_block_bitmap_range167,4088
+errcode_t ext2fs_get_block_bitmap_range(ext2fs_block_bitmap bmap,ext2fs_get_block_bitmap_range176,4315
+
+llseek.c,550
+#define _LARGEFILE_SOURCE_LARGEFILE_SOURCE12,234
+#define _LARGEFILE64_SOURCE_LARGEFILE64_SOURCE13,260
+#define my_llseek my_llseek38,644
+#define my_llseek my_llseek48,826
+#define llseek llseek54,916
+#define __NR__llseek __NR__llseek61,1031
+static ext2_loff_t my_llseek (int fd, ext2_loff_t offset, int origin)my_llseek73,1348
+ext2_loff_t ext2fs_llseek (int fd, ext2_loff_t offset, int origin)ext2fs_llseek93,1878
+#define EINVAL EINVAL123,2545
+ext2_loff_t ext2fs_llseek (int fd, ext2_loff_t offset, int origin)ext2fs_llseek126,2593
+
+extent.c,4510
+struct extent_path {extent_path41,623
+	char		*buf;buf42,644
+	int		entries;entries43,657
+	int		max_entries;max_entries44,672
+	int		left;left45,691
+	int		visit_num;visit_num46,703
+	int		flags;flags47,720
+	blk64_t		end_blk;end_blk48,733
+	void		*curr;curr49,752
+struct ext2_extent_handle {ext2_extent_handle53,771
+	errcode_t		magic;magic54,799
+	ext2_filsys		fs;fs55,818
+	ext2_ino_t 		ino;ino56,836
+	struct ext2_inode	*inode;inode57,855
+	int			type;type58,882
+	int			level;level59,895
+	int			max_depth;max_depth60,909
+	struct extent_path	*path;path61,927
+struct ext2_extent_path {ext2_extent_path64,958
+	errcode_t		magic;magic65,984
+	int			leaf_height;leaf_height66,1003
+	blk64_t			lblk;lblk67,1023
+static void dbg_show_header(struct ext3_extent_header *eh)dbg_show_header75,1092
+static void dbg_show_index(struct ext3_extent_idx *ix)dbg_show_index85,1418
+static void dbg_show_extent(struct ext3_extent *ex)dbg_show_extent94,1687
+static void dbg_print_extent(char *desc, struct ext2fs_extent *extent)dbg_print_extent105,2032
+#define dbg_show_header(dbg_show_header125,2621
+#define dbg_show_index(dbg_show_index126,2666
+#define dbg_show_extent(dbg_show_extent127,2710
+#define dbg_print_extent(dbg_print_extent128,2755
+errcode_t ext2fs_extent_header_verify(void *ptr, int size)ext2fs_extent_header_verify134,2864
+extern void ext2fs_extent_free(ext2_extent_handle_t handle)ext2fs_extent_free163,3717
+extern errcode_t ext2fs_extent_open(ext2_filsys fs, ext2_ino_t ino,ext2fs_extent_open182,4076
+extern errcode_t ext2fs_extent_open2(ext2_filsys fs, ext2_ino_t ino,ext2fs_extent_open2188,4247
+errcode_t ext2fs_extent_get(ext2_extent_handle_t handle,ext2fs_extent_get282,6779
+static errcode_t update_path(ext2_extent_handle_t handle)update_path544,13454
+static errcode_t extent_goto(ext2_extent_handle_t handle,extent_goto612,15145
+errcode_t ext2fs_extent_goto(ext2_extent_handle_t handle,ext2fs_extent_goto699,17109
+static errcode_t ext2fs_extent_fix_parents(ext2_extent_handle_t handle)ext2fs_extent_fix_parents714,17492
+errcode_t ext2fs_extent_replace(ext2_extent_handle_t handle,ext2fs_extent_replace763,18697
+static errcode_t extent_node_split(ext2_extent_handle_t handle)extent_node_split821,20301
+errcode_t ext2fs_extent_insert(ext2_extent_handle_t handle, int flags,ext2fs_extent_insert1048,26501
+errcode_t ext2fs_extent_set_bmap(ext2_extent_handle_t handle,ext2fs_extent_set_bmap1144,28776
+errcode_t ext2fs_extent_delete(ext2_extent_handle_t handle, int flags)ext2fs_extent_delete1451,37297
+errcode_t ext2fs_extent_get_info(ext2_extent_handle_t handle,ext2fs_extent_get_info1523,39087
+const char *debug_prog_name = "tst_extents";debug_prog_name1564,40034
+ss_request_table *extra_cmds = &extent_cmds;extra_cmds1566,40116
+ext2_ino_t	current_ino = 0;current_ino1568,40162
+ext2_extent_handle_t current_handle;current_handle1569,40190
+int common_extent_args_process(int argc, char *argv[], int min_argc,common_extent_args_process1571,40228
+void do_inode(int argc, char *argv[])do_inode1586,40572
+void generic_goto_node(char *cmd_name, int op)generic_goto_node1623,41195
+void do_current_node(int argc, char *argv[])do_current_node1644,41576
+void do_root_node(int argc, char *argv[])do_root_node1649,41676
+void do_last_leaf(int argc, char *argv[])do_last_leaf1654,41770
+void do_first_sib(int argc, char *argv[])do_first_sib1659,41869
+void do_last_sib(int argc, char *argv[])do_last_sib1664,41968
+void do_next_sib(int argc, char *argv[])do_next_sib1669,42065
+void do_prev_sib(int argc, char *argv[])do_prev_sib1674,42162
+void do_next_leaf(int argc, char *argv[])do_next_leaf1679,42259
+void do_prev_leaf(int argc, char *argv[])do_prev_leaf1684,42358
+void do_next(int argc, char *argv[])do_next1689,42457
+void do_prev(int argc, char *argv[])do_prev1694,42546
+void do_up(int argc, char *argv[])do_up1699,42635
+void do_down(int argc, char *argv[])do_down1704,42720
+void do_delete_node(int argc, char *argv[])do_delete_node1709,42809
+void do_replace_node(int argc, char *argv[])do_replace_node1727,43213
+void do_split_node(int argc, char *argv[])do_split_node1771,44145
+void do_insert_node(int argc, char *argv[])do_insert_node1789,44510
+void do_set_bmap(int argc, char **argv)do_set_bmap1850,45659
+void do_print_all(int argc, char **argv)do_print_all1895,46595
+void do_info(int argc, char **argv)do_info1946,47797
+void do_goto_block(int argc, char **argv)do_goto_block1979,48662
+
+alloc_tables.c,280
+static blk_t flexbg_offset(ext2_filsys fs, dgrp_t group, blk_t start_blk,flexbg_offset36,813
+errcode_t ext2fs_allocate_group_table(ext2_filsys fs, dgrp_t group,ext2fs_allocate_group_table81,2031
+errcode_t ext2fs_allocate_tables(ext2_filsys fs)ext2fs_allocate_tables216,6142
+
+mkdir.c,135
+#define EXT2_FT_DIR	EXT2_FT_DIR30,505
+errcode_t ext2fs_mkdir(ext2_filsys fs, ext2_ino_t parent, ext2_ino_t inum,ext2fs_mkdir33,536
+
+imager.c,741
+typedef int ssize_t;ssize_t39,716
+static int check_zero_block(char *buf, int blocksize)check_zero_block45,815
+#define BUF_BLOCKS	BUF_BLOCKS61,1040
+errcode_t ext2fs_image_inode_write(ext2_filsys fs, int fd, int flags)ext2fs_image_inode_write63,1063
+errcode_t ext2fs_image_inode_read(ext2_filsys fs, int fd,ext2fs_image_inode_read136,2577
+errcode_t ext2fs_image_super_write(ext2_filsys fs, int fd,ext2fs_image_super_write187,3601
+errcode_t ext2fs_image_super_read(ext2_filsys fs, int fd,ext2fs_image_super_read237,4559
+errcode_t ext2fs_image_bitmap_write(ext2_filsys fs, int fd, int flags)ext2fs_image_bitmap_write280,5299
+errcode_t ext2fs_image_bitmap_read(ext2_filsys fs, int fd, int flags)ext2fs_image_bitmap_read357,6975
+
+rw_bitmaps.c,689
+static errcode_t write_bitmaps(ext2_filsys fs, int do_inode, int do_block)write_bitmaps30,551
+static errcode_t read_bitmaps(ext2_filsys fs, int do_inode, int do_block)read_bitmaps136,3170
+errcode_t ext2fs_read_inode_bitmap(ext2_filsys fs)ext2fs_read_inode_bitmap307,7783
+errcode_t ext2fs_read_block_bitmap(ext2_filsys fs)ext2fs_read_block_bitmap312,7871
+errcode_t ext2fs_write_inode_bitmap(ext2_filsys fs)ext2fs_write_inode_bitmap317,7959
+errcode_t ext2fs_write_block_bitmap (ext2_filsys fs)ext2fs_write_block_bitmap322,8049
+errcode_t ext2fs_read_bitmaps(ext2_filsys fs)ext2fs_read_bitmaps327,8140
+errcode_t ext2fs_write_bitmaps(ext2_filsys fs)ext2fs_write_bitmaps335,8299
+
+icount.c,3134
+struct ext2_icount_el {ext2_icount_el44,1266
+	ext2_ino_t	ino;ino45,1290
+	__u32		count;count46,1307
+struct ext2_icount {ext2_icount49,1326
+	errcode_t		magic;magic50,1347
+	ext2fs_inode_bitmap	single;single51,1366
+	ext2fs_inode_bitmap	multiple;multiple52,1395
+	ext2_ino_t		count;count53,1426
+	ext2_ino_t		size;size54,1446
+	ext2_ino_t		num_inodes;num_inodes55,1465
+	ext2_ino_t		cursor;cursor56,1490
+	struct ext2_icount_el	*list;list57,1511
+	struct ext2_icount_el	*last_lookup;last_lookup58,1541
+	char			*tdb_fn;tdb_fn59,1578
+	TDB_CONTEXT		*tdb;tdb60,1595
+#define icount_16_xlate(icount_16_xlate70,1967
+void ext2fs_free_icount(ext2_icount_t icount)ext2fs_free_icount72,2025
+static errcode_t alloc_icount(ext2_filsys fs, int flags, ext2_icount_t *ret)alloc_icount94,2456
+struct uuid {uuid129,3183
+	__u32	time_low;time_low130,3197
+	__u16	time_mid;time_mid131,3214
+	__u16	time_hi_and_version;time_hi_and_version132,3231
+	__u16	clock_seq;clock_seq133,3259
+	__u8	node[6];node134,3277
+static void unpack_uuid(void *in, struct uuid *uu)unpack_uuid137,3296
+static void uuid_unparse(void *uu, char *out)uuid_unparse163,3737
+errcode_t ext2fs_create_icount_tdb(ext2_filsys fs, char *tdb_dir,ext2fs_create_icount_tdb176,4094
+errcode_t ext2fs_create_icount2(ext2_filsys fs, int flags, unsigned int size,ext2fs_create_icount2212,4816
+errcode_t ext2fs_create_icount(ext2_filsys fs, int flags,ext2fs_create_icount277,6336
+static struct ext2_icount_el *insert_icount_el(ext2_icount_t icount,insert_icount_el288,6616
+static struct ext2_icount_el *get_icount_el(ext2_icount_t icount,get_icount_el339,8012
+static errcode_t set_inode_count(ext2_icount_t icount, ext2_ino_t ino,set_inode_count409,9549
+static errcode_t get_inode_count(ext2_icount_t icount, ext2_ino_t ino,get_inode_count440,10224
+errcode_t ext2fs_icount_validate(ext2_icount_t icount, FILE *out)ext2fs_icount_validate470,10788
+errcode_t ext2fs_icount_fetch(ext2_icount_t icount, ext2_ino_t ino, __u16 *ret)ext2fs_icount_fetch493,11368
+errcode_t ext2fs_icount_increment(ext2_icount_t icount, ext2_ino_t ino,ext2fs_icount_increment515,11860
+errcode_t ext2fs_icount_decrement(ext2_icount_t icount, ext2_ino_t ino,ext2fs_icount_decrement572,13381
+errcode_t ext2fs_icount_store(ext2_icount_t icount, ext2_ino_t ino,ext2fs_icount_store615,14429
+ext2_ino_t ext2fs_get_icount_size(ext2_icount_t icount)ext2fs_get_icount_size650,15342
+ext2_filsys	test_fs;test_fs660,15507
+ext2_icount_t	icount;icount661,15528
+#define EXIT	EXIT663,15551
+#define FETCH	FETCH664,15570
+#define STORE	STORE665,15590
+#define INCREMENT	INCREMENT666,15610
+#define DECREMENT	DECREMENT667,15633
+struct test_program {test_program669,15657
+	int		cmd;cmd670,15679
+	ext2_ino_t	ino;ino671,15690
+	__u16		arg;arg672,15707
+	__u16		expected;expected673,15720
+struct test_program prog[] = {prog676,15742
+struct test_program extended[] = {extended702,16312
+static void setup(void)setup739,17091
+int run_test(int flags, int size, char *dir, struct test_program *prog)run_test764,17600
+int main(int argc, char **argv)main843,19548
+
+read_bb.c,305
+struct read_bb_record {read_bb_record29,470
+	ext2_badblocks_list	bb_list;bb_list30,494
+	errcode_t	err;err31,524
+static int mark_bad_block(ext2_filsys fs, blk_t *block_nr,mark_bad_block40,640
+errcode_t ext2fs_read_bb_inode(ext2_filsys fs, ext2_badblocks_list *bb_list)ext2fs_read_bb_inode64,1276
+
+dir_iterate.c,967
+#define EXT4_MAX_REC_LEN	EXT4_MAX_REC_LEN26,446
+errcode_t ext2fs_get_rec_len(ext2_filsys fs,ext2fs_get_rec_len28,485
+errcode_t ext2fs_set_rec_len(ext2_filsys fs,ext2fs_set_rec_len41,779
+static int ext2fs_validate_entry(ext2_filsys fs, char *buf,ext2fs_validate_entry69,1614
+#define DIRENT_MIN_LENGTH DIRENT_MIN_LENGTH75,1789
+errcode_t ext2fs_dir_iterate2(ext2_filsys fs,ext2fs_dir_iterate291,2211
+struct xlate {xlate134,3151
+	int (*func)(struct ext2_dir_entry *dirent,func135,3166
+	void *real_private;real_private140,3292
+		      struct ext2_dir_entry *dirent, int offset,dirent145,3418
+		      struct ext2_dir_entry *dirent, int offset,offset145,3418
+		      int blocksize, char *buf, void *priv_data)blocksize146,3469
+		      int blocksize, char *buf, void *priv_data)buf146,3469
+extern errcode_t ext2fs_dir_iterate(ext2_filsys fs,ext2fs_dir_iterate153,3645
+int ext2fs_process_dir_block(ext2_filsys fs,ext2fs_process_dir_block178,4207
+
+bmap.c,621
+#define _BMAP_INLINE_	_BMAP_INLINE_25,431
+#define _BMAP_INLINE__BMAP_INLINE_27,470
+#define inode_bmap(inode_bmap35,676
+static _BMAP_INLINE_ errcode_t block_ind_bmap(ext2_filsys fs, int flags,block_ind_bmap37,732
+static _BMAP_INLINE_ errcode_t block_dind_bmap(ext2_filsys fs, int flags,block_dind_bmap94,1976
+static _BMAP_INLINE_ errcode_t block_tind_bmap(ext2_filsys fs, int flags,block_tind_bmap114,2521
+errcode_t ext2fs_bmap2(ext2_filsys fs, ext2_ino_t ino, struct ext2_inode *inode,ext2fs_bmap2134,3068
+errcode_t ext2fs_bmap(ext2_filsys fs, ext2_ino_t ino, struct ext2_inode *inode,ext2fs_bmap325,7784
+
+ind_block.c,201
+errcode_t ext2fs_read_ind_block(ext2_filsys fs, blk_t blk, void *buf)ext2fs_read_ind_block24,440
+errcode_t ext2fs_write_ind_block(ext2_filsys fs, blk_t blk, void *buf)ext2fs_write_ind_block49,1051
+
+i_block.c,313
+errcode_t ext2fs_iblk_add_blocks(ext2_filsys fs, struct ext2_inode *inode,ext2fs_iblk_add_blocks28,465
+errcode_t ext2fs_iblk_sub_blocks(ext2_filsys fs, struct ext2_inode *inode,ext2fs_iblk_sub_blocks47,982
+errcode_t ext2fs_iblk_set(ext2_filsys fs, struct ext2_inode *inode, blk64_t b)ext2fs_iblk_set65,1498
+
+bb_inode.c,681
+struct set_badblock_record {set_badblock_record33,657
+	ext2_badblocks_iterate	bb_iter;bb_iter34,686
+	int		bad_block_count;bad_block_count35,719
+	blk_t		*ind_blocks;ind_blocks36,742
+	int		max_ind_blocks;max_ind_blocks37,763
+	int		ind_blocks_size;ind_blocks_size38,785
+	int		ind_blocks_ptr;ind_blocks_ptr39,808
+	char		*block_buf;block_buf40,830
+	errcode_t	err;err41,849
+errcode_t ext2fs_update_bb_inode(ext2_filsys fs, ext2_badblocks_list bb_list)ext2fs_update_bb_inode57,1271
+static int clear_bad_block_proc(ext2_filsys fs, blk_t *block_nr,clear_bad_block_proc152,3599
+static int set_bad_block_proc(ext2_filsys fs, blk_t *block_nr,set_bad_block_proc209,4925
+
+read_bb_file.c,353
+errcode_t ext2fs_read_bb_FILE2(ext2_filsys fs, FILE *f,ext2fs_read_bb_FILE232,555
+struct compat_struct {compat_struct74,1478
+	void (*invalid)(ext2_filsys, blk_t);invalid75,1501
+static void call_compat_invalid(ext2_filsys fs, blk_t blk,call_compat_invalid78,1543
+errcode_t ext2fs_read_bb_FILE(ext2_filsys fs, FILE *f,ext2fs_read_bb_FILE93,1835
+
+lookup.c,325
+struct lookup_struct  {lookup_struct21,361
+	const char	*name;name22,385
+	int		len;len23,404
+	ext2_ino_t	*inode;inode24,415
+	int		found;found25,435
+static int lookup_proc(struct ext2_dir_entry *dirent,lookup_proc31,495
+errcode_t ext2fs_lookup(ext2_filsys fs, ext2_ino_t dir, const char *name,ext2fs_lookup49,974
+
+res_gdt.c,178
+static unsigned int list_backups(ext2_filsys fs, unsigned int *three,list_backups26,756
+errcode_t ext2fs_create_resize_inode(ext2_filsys fs)ext2fs_create_resize_inode61,1487
+
+newdir.c,135
+#define EXT2_FT_DIR	EXT2_FT_DIR22,363
+errcode_t ext2fs_new_dir_block(ext2_filsys fs, ext2_ino_t dir_ino,ext2fs_new_dir_block28,431
+
+dupfs.c,89
+errcode_t ext2fs_dup_handle(ext2_filsys src, ext2_filsys *dest)ext2fs_dup_handle22,388
+
+badblocks.c,2013
+static errcode_t make_u32_list(int size, int num, __u32 *list,make_u32_list32,562
+errcode_t ext2fs_u32_list_create(ext2_u32_list *ret, int size)ext2fs_u32_list_create62,1256
+errcode_t ext2fs_badblocks_list_create(ext2_badblocks_list *ret, int size)ext2fs_badblocks_list_create70,1422
+errcode_t ext2fs_u32_copy(ext2_u32_list src, ext2_u32_list *dest)ext2fs_u32_copy79,1616
+errcode_t ext2fs_badblocks_copy(ext2_badblocks_list src,ext2fs_badblocks_copy90,1861
+errcode_t ext2fs_u32_list_add(ext2_u32_list bb, __u32 blk)ext2fs_u32_list_add107,2177
+errcode_t ext2fs_badblocks_list_add(ext2_badblocks_list bb, blk_t blk)ext2fs_badblocks_list_add153,3062
+int ext2fs_u32_list_find(ext2_u32_list bb, __u32 blk)ext2fs_u32_list_find162,3277
+int ext2fs_u32_list_test(ext2_u32_list bb, __u32 blk)ext2fs_u32_list_test197,3862
+int ext2fs_badblocks_list_test(ext2_badblocks_list bb, blk_t blk)ext2fs_badblocks_list_test205,3991
+int ext2fs_u32_list_del(ext2_u32_list bb, __u32 blk)ext2fs_u32_list_del214,4174
+void ext2fs_badblocks_list_del(ext2_u32_list bb, __u32 blk)ext2fs_badblocks_list_del231,4447
+errcode_t ext2fs_u32_list_iterate_begin(ext2_u32_list bb,ext2fs_u32_list_iterate_begin236,4543
+errcode_t ext2fs_badblocks_list_iterate_begin(ext2_badblocks_list bb,ext2fs_badblocks_list_iterate_begin255,4942
+int ext2fs_u32_list_iterate(ext2_u32_iterate iter, __u32 *blk)ext2fs_u32_list_iterate263,5154
+int ext2fs_badblocks_list_iterate(ext2_badblocks_iterate iter, blk_t *blk)ext2fs_badblocks_list_iterate283,5483
+void ext2fs_u32_list_iterate_end(ext2_u32_iterate iter)ext2fs_u32_list_iterate_end290,5648
+void ext2fs_badblocks_list_iterate_end(ext2_badblocks_iterate iter)ext2fs_badblocks_list_iterate_end299,5824
+int ext2fs_u32_list_equal(ext2_u32_list bb1, ext2_u32_list bb2)ext2fs_u32_list_equal305,5953
+int ext2fs_badblocks_equal(ext2_badblocks_list bb1, ext2_badblocks_list bb2)ext2fs_badblocks_equal318,6260
+int ext2fs_u32_list_count(ext2_u32_list bb)ext2fs_u32_list_count324,6424
+
+tdb.c,17215
+#define HAVE_MMAPHAVE_MMAP33,1286
+#define HAVE_STRDUPHAVE_STRDUP34,1304
+#define HAVE_SYS_MMAN_HHAVE_SYS_MMAN_H35,1324
+#define HAVE_UTIME_HHAVE_UTIME_H36,1348
+#define HAVE_UTIMEHAVE_UTIME37,1369
+#define _XOPEN_SOURCE _XOPEN_SOURCE39,1395
+#define MAP_FILE MAP_FILE66,1859
+#define MAP_FAILED MAP_FAILED70,1905
+#define strdup strdup74,1965
+static char *rep_strdup(const char *s)rep_strdup75,1991
+#define PRINTF_ATTRIBUTE(PRINTF_ATTRIBUTE100,2524
+#define PRINTF_ATTRIBUTE(PRINTF_ATTRIBUTE102,2609
+typedef int bool;bool106,2657
+#define u32 u32111,2706
+#define getpagesize(getpagesize115,2760
+typedef u32 tdb_len_t;tdb_len_t118,2797
+typedef u32 tdb_off_t;tdb_off_t119,2820
+#define offsetof(offsetof122,2861
+#define TDB_MAGIC_FOOD TDB_MAGIC_FOOD125,2920
+#define TDB_VERSION TDB_VERSION126,2956
+#define TDB_MAGIC TDB_MAGIC127,2993
+#define TDB_FREE_MAGIC TDB_FREE_MAGIC128,3025
+#define TDB_DEAD_MAGIC TDB_DEAD_MAGIC129,3061
+#define TDB_RECOVERY_MAGIC TDB_RECOVERY_MAGIC130,3097
+#define TDB_ALIGNMENT TDB_ALIGNMENT131,3138
+#define MIN_REC_SIZE MIN_REC_SIZE132,3162
+#define DEFAULT_HASH_SIZE DEFAULT_HASH_SIZE133,3230
+#define FREELIST_TOP FREELIST_TOP134,3260
+#define TDB_ALIGN(TDB_ALIGN135,3309
+#define TDB_BYTEREV(TDB_BYTEREV136,3359
+#define TDB_DEAD(TDB_DEAD137,3447
+#define TDB_BAD_MAGIC(TDB_BAD_MAGIC138,3498
+#define TDB_HASH_TOP(TDB_HASH_TOP139,3565
+#define TDB_HASHTABLE_SIZE(TDB_HASHTABLE_SIZE140,3644
+#define TDB_DATA_START(TDB_DATA_START141,3722
+#define TDB_RECOVERY_HEAD TDB_RECOVERY_HEAD142,3782
+#define TDB_SEQNUM_OFS TDB_SEQNUM_OFS143,3852
+#define TDB_PAD_BYTE TDB_PAD_BYTE144,3923
+#define TDB_PAD_U32 TDB_PAD_U32145,3949
+#define TDB_LOG(TDB_LOG150,4127
+#define GLOBAL_LOCK GLOBAL_LOCK153,4184
+#define ACTIVE_LOCK ACTIVE_LOCK154,4211
+#define TRANSACTION_LOCK TRANSACTION_LOCK155,4238
+#define SAFE_FREE(SAFE_FREE159,4347
+#define BUCKET(BUCKET162,4430
+#define DOCONV(DOCONV164,4485
+#define CONVERT(CONVERT165,4529
+struct list_struct {list_struct170,4721
+	tdb_off_t next; /* offset of the next record in the list */next171,4742
+	tdb_len_t rec_len; /* total byte length of record */rec_len172,4803
+	tdb_len_t key_len; /* byte length of key */key_len173,4857
+	tdb_len_t data_len; /* byte length of data */data_len174,4902
+	u32 full_hash; /* the full 32 bit hash of the key */full_hash175,4949
+	u32 magic;   /* try to catch errors */magic176,5003
+struct tdb_header {tdb_header191,5271
+	char magic_food[32]; /* for /etc/magic */magic_food192,5291
+	u32 version; /* version of the code */version193,5334
+	u32 hash_size; /* number of hash entries */hash_size194,5374
+	tdb_off_t rwlocks; /* obsolete - kept to detect old formats */rwlocks195,5419
+	tdb_off_t recovery_start; /* offset of transaction recovery region */recovery_start196,5483
+	tdb_off_t sequence_number; /* used when TDB_SEQNUM is set */sequence_number197,5554
+	tdb_off_t reserved[29];reserved198,5616
+struct tdb_lock_type {tdb_lock_type201,5645
+	int list;list202,5668
+	u32 count;count203,5679
+	u32 ltype;ltype204,5691
+struct tdb_traverse_lock {tdb_traverse_lock207,5707
+	struct tdb_traverse_lock *next;next208,5734
+	u32 off;off209,5767
+	u32 hash;hash210,5777
+	int lock_rw;lock_rw211,5788
+struct tdb_methods {tdb_methods215,5807
+	int (*tdb_read)(struct tdb_context *, tdb_off_t , void *, tdb_len_t , int );tdb_read216,5828
+	int (*tdb_write)(struct tdb_context *, tdb_off_t, const void *, tdb_len_t);tdb_write217,5906
+	void (*next_hash_chain)(struct tdb_context *, u32 *);next_hash_chain218,5983
+	int (*tdb_oob)(struct tdb_context *, tdb_off_t , int );tdb_oob219,6038
+	int (*tdb_expand_file)(struct tdb_context *, tdb_off_t , tdb_off_t );tdb_expand_file220,6095
+	int (*tdb_brlock)(struct tdb_context *, tdb_off_t , int, int, int, size_t);tdb_brlock221,6166
+struct tdb_context {tdb_context224,6247
+	char *name; /* the name of the database */name225,6268
+	void *map_ptr; /* where it is currently mapped */map_ptr226,6312
+	int fd; /* open file descriptor for the database */fd227,6363
+	tdb_len_t map_size; /* how much space has been mapped */map_size228,6416
+	int read_only; /* opened read-only */read_only229,6474
+	int traverse_read; /* read-only traversal */traverse_read230,6513
+	struct tdb_lock_type global_lock;global_lock231,6559
+	int num_lockrecs;num_lockrecs232,6594
+	struct tdb_lock_type *lockrecs; /* only real locks, all with count>0 */lockrecs233,6613
+	enum TDB_ERROR ecode; /* error code for last tdb error */ecode234,6686
+	struct tdb_header header; /* a cached copy of the header */header235,6745
+	u32 flags; /* the flags passed to tdb_open */flags236,6806
+	struct tdb_traverse_lock travlocks; /* current traversal locks */travlocks237,6853
+	struct tdb_context *next; /* all tdbs to avoid multiple opens */next238,6920
+	dev_t device;	/* uniquely identifies this tdb */device239,6986
+	ino_t inode;	/* uniquely identifies this tdb */inode240,7036
+	struct tdb_logging_context log;log241,7085
+	unsigned int (*hash_fn)(TDB_DATA *key);hash_fn242,7118
+	int open_flags; /* flags used in the open - needed by reopen */open_flags243,7159
+	unsigned int num_locks; /* number of chain locks held */num_locks244,7224
+	const struct tdb_methods *methods;methods245,7282
+	struct tdb_transaction *transaction;transaction246,7318
+	int page_size;page_size247,7356
+	int max_dead_records;max_dead_records248,7372
+	bool have_transaction_lock;have_transaction_lock249,7395
+enum TDB_ERROR tdb_error(struct tdb_context *tdb)tdb_error294,9824
+static struct tdb_errname {tdb_errname299,9899
+	enum TDB_ERROR ecode; const char *estring;ecode300,9927
+	enum TDB_ERROR ecode; const char *estring;estring300,9927
+} emap[] = { {TDB_SUCCESS, "Success"},emap301,9971
+const char *tdb_errorstr(struct tdb_context *tdb)tdb_errorstr313,10445
+#define TDB_MARK_LOCK TDB_MARK_LOCK324,10685
+int tdb_brlock(struct tdb_context *tdb, tdb_off_t offset,tdb_brlock334,10990
+int tdb_brlock_upgrade(struct tdb_context *tdb, tdb_off_t offset, size_t len)tdb_brlock_upgrade381,12222
+static int _tdb_lock(struct tdb_context *tdb, int list, int ltype, int op)_tdb_lock403,12793
+int tdb_lock(struct tdb_context *tdb, int list, int ltype)tdb_lock476,14582
+int tdb_lock_nonblock(struct tdb_context *tdb, int list, int ltype)tdb_lock_nonblock488,14929
+int tdb_unlock(struct tdb_context *tdb, int list, int ltype)tdb_unlock497,15218
+int tdb_transaction_lock(struct tdb_context *tdb, int ltype)tdb_transaction_lock584,17151
+int tdb_transaction_unlock(struct tdb_context *tdb)tdb_transaction_unlock602,17607
+static int _tdb_lockall(struct tdb_context *tdb, int ltype, int op)_tdb_lockall619,17910
+static int _tdb_unlockall(struct tdb_context *tdb, int ltype)_tdb_unlockall662,18896
+int tdb_lockall(struct tdb_context *tdb)tdb_lockall696,19719
+int tdb_lockall_mark(struct tdb_context *tdb)tdb_lockall_mark702,19866
+int tdb_lockall_unmark(struct tdb_context *tdb)tdb_lockall_unmark708,20038
+int tdb_lockall_nonblock(struct tdb_context *tdb)tdb_lockall_nonblock714,20210
+int tdb_unlockall(struct tdb_context *tdb)tdb_unlockall720,20355
+int tdb_lockall_read(struct tdb_context *tdb)tdb_lockall_read726,20483
+int tdb_lockall_read_nonblock(struct tdb_context *tdb)tdb_lockall_read_nonblock732,20641
+int tdb_unlockall_read(struct tdb_context *tdb)tdb_unlockall_read738,20790
+int tdb_chainlock(struct tdb_context *tdb, TDB_DATA key)tdb_chainlock745,21018
+int tdb_chainlock_nonblock(struct tdb_context *tdb, TDB_DATA key)tdb_chainlock_nonblock753,21294
+int tdb_chainlock_mark(struct tdb_context *tdb, TDB_DATA key)tdb_chainlock_mark759,21525
+int tdb_chainlock_unmark(struct tdb_context *tdb, TDB_DATA key)tdb_chainlock_unmark765,21761
+int tdb_chainunlock(struct tdb_context *tdb, TDB_DATA key)tdb_chainunlock770,21908
+int tdb_chainlock_read(struct tdb_context *tdb, TDB_DATA key)tdb_chainlock_read775,22034
+int tdb_chainunlock_read(struct tdb_context *tdb, TDB_DATA key)tdb_chainunlock_read780,22161
+int tdb_lock_record(struct tdb_context *tdb, tdb_off_t off)tdb_lock_record788,22336
+int tdb_write_lock_record(struct tdb_context *tdb, tdb_off_t off)tdb_write_lock_record798,22657
+int tdb_write_unlock_record(struct tdb_context *tdb, tdb_off_t off)tdb_write_unlock_record811,23015
+int tdb_unlock_record(struct tdb_context *tdb, tdb_off_t off)tdb_unlock_record817,23218
+static int tdb_oob(struct tdb_context *tdb, tdb_off_t len, int probe)tdb_oob837,23754
+static int tdb_write(struct tdb_context *tdb, tdb_off_t off,tdb_write875,24719
+void *tdb_convert(void *buf, u32 size)tdb_convert903,25439
+static int tdb_read(struct tdb_context *tdb, tdb_off_t off, void *buf,tdb_read913,25645
+static void tdb_next_hash_chain(struct tdb_context *tdb, u32 *chain)tdb_next_hash_chain946,26459
+int tdb_munmap(struct tdb_context *tdb)tdb_munmap967,26876
+void tdb_mmap(struct tdb_context *tdb)tdb_mmap983,27127
+static int tdb_expand_file(struct tdb_context *tdb, tdb_off_t size, tdb_off_t addition)tdb_expand_file1013,27830
+int tdb_expand(struct tdb_context *tdb, tdb_off_t size)tdb_expand1052,28927
+int tdb_ofs_read(struct tdb_context *tdb, tdb_off_t offset, tdb_off_t *d)tdb_ofs_read1122,30701
+int tdb_ofs_write(struct tdb_context *tdb, tdb_off_t offset, tdb_off_t *d)tdb_ofs_write1127,30857
+unsigned char *tdb_alloc_read(struct tdb_context *tdb, tdb_off_t offset, tdb_len_t len)tdb_alloc_read1135,31086
+int tdb_parse_data(struct tdb_context *tdb, TDB_DATA key,tdb_parse_data1160,31704
+int tdb_rec_read(struct tdb_context *tdb, tdb_off_t offset, struct list_struct *rec)tdb_rec_read1193,32475
+int tdb_rec_write(struct tdb_context *tdb, tdb_off_t offset, struct list_struct *rec)tdb_rec_write1206,32962
+static const struct tdb_methods io_methods = {io_methods1212,33152
+void tdb_io_init(struct tdb_context *tdb)tdb_io_init1224,33333
+struct tdb_transaction_el {tdb_transaction_el1293,36200
+	struct tdb_transaction_el *next, *prev;next1294,36228
+	struct tdb_transaction_el *next, *prev;prev1294,36228
+	tdb_off_t offset;offset1295,36269
+	tdb_len_t length;length1296,36288
+	unsigned char *data;data1297,36307
+struct tdb_transaction {tdb_transaction1303,36385
+	u32 *hash_heads;hash_heads1306,36521
+	const struct tdb_methods *io_methods;io_methods1309,36603
+	struct tdb_transaction_el *elements, *elements_last;elements1316,36949
+	struct tdb_transaction_el *elements, *elements_last;elements_last1316,36949
+	int transaction_error;transaction_error1321,37144
+	int nesting;nesting1326,37334
+	tdb_len_t old_map_size;old_map_size1329,37389
+static int transaction_read(struct tdb_context *tdb, tdb_off_t off, void *buf,transaction_read1337,37560
+static int transaction_write(struct tdb_context *tdb, tdb_off_t off,transaction_write1398,39018
+static void transaction_next_hash_chain(struct tdb_context *tdb, u32 *chain)transaction_next_hash_chain1522,42130
+static int transaction_oob(struct tdb_context *tdb, tdb_off_t len, int probe)transaction_oob1537,42443
+static int transaction_expand_file(struct tdb_context *tdb, tdb_off_t size,transaction_expand_file1548,42652
+static int transaction_brlock(struct tdb_context *tdb, tdb_off_t offset,transaction_brlock1563,42986
+static const struct tdb_methods transaction_methods = {transaction_methods1569,43134
+int tdb_transaction_start(struct tdb_context *tdb)tdb_transaction_start1583,43455
+int tdb_transaction_cancel(struct tdb_context *tdb)tdb_transaction_cancel1690,47031
+static int transaction_sync(struct tdb_context *tdb, tdb_off_t offset, tdb_len_t length)transaction_sync1745,48400
+static tdb_len_t tdb_recovery_size(struct tdb_context *tdb)tdb_recovery_size1771,49058
+static int tdb_recovery_allocate(struct tdb_context *tdb,tdb_recovery_allocate1791,49514
+static int transaction_setup_recovery(struct tdb_context *tdb,transaction_setup_recovery1872,52277
+int tdb_transaction_commit(struct tdb_context *tdb)tdb_transaction_commit1981,55309
+int tdb_transaction_recover(struct tdb_context *tdb)tdb_transaction_recover2134,60044
+static int tdb_rec_free_read(struct tdb_context *tdb, tdb_off_t off, struct list_struct *rec)tdb_rec_free_read2259,63518
+static int remove_from_freelist(struct tdb_context *tdb, tdb_off_t off, tdb_off_t next)remove_from_freelist2289,64520
+static int update_tailer(struct tdb_context *tdb, tdb_off_t offset,update_tailer2309,65112
+int tdb_free(struct tdb_context *tdb, tdb_off_t offset, struct list_struct *rec)tdb_free2322,65493
+static tdb_off_t tdb_allocate_ofs(struct tdb_context *tdb, tdb_len_t length, tdb_off_t rec_ptr,tdb_allocate_ofs2424,68261
+tdb_off_t tdb_allocate(struct tdb_context *tdb, tdb_len_t length, struct list_struct *rec)tdb_allocate2485,69854
+static int seen_insert(struct tdb_context *mem_tdb, tdb_off_t rec_ptr)seen_insert2569,71969
+int tdb_validate_freelist(struct tdb_context *tdb, int *pnum_entries)tdb_validate_freelist2579,72223
+static int tdb_next_lock(struct tdb_context *tdb, struct tdb_traverse_lock *tlock,tdb_next_lock2645,73498
+static int tdb_traverse_internal(struct tdb_context *tdb,tdb_traverse_internal2752,76998
+int tdb_traverse_read(struct tdb_context *tdb,tdb_traverse_read2816,78664
+int tdb_traverse(struct tdb_context *tdb,tdb_traverse2841,79253
+TDB_DATA tdb_firstkey(struct tdb_context *tdb)tdb_firstkey2864,79738
+TDB_DATA tdb_nextkey(struct tdb_context *tdb, TDB_DATA oldkey)tdb_nextkey2889,80563
+static tdb_off_t tdb_dump_record(struct tdb_context *tdb, int hash,tdb_dump_record2950,82602
+static int tdb_dump_chain(struct tdb_context *tdb, int i)tdb_dump_chain2981,83573
+void tdb_dump_all(struct tdb_context *tdb)tdb_dump_all3003,83969
+int tdb_printfreelist(struct tdb_context *tdb)tdb_printfreelist3013,84145
+TDB_DATA tdb_null;tdb_null3060,85245
+void tdb_increment_seqnum_nonblock(struct tdb_context *tdb)tdb_increment_seqnum_nonblock3066,85378
+static void tdb_increment_seqnum(struct tdb_context *tdb)tdb_increment_seqnum3086,85798
+static int tdb_key_compare(TDB_DATA key, TDB_DATA data, void *private_data)tdb_key_compare3101,86091
+static tdb_off_t tdb_find(struct tdb_context *tdb, TDB_DATA key, u32 hash,tdb_find3108,86304
+tdb_off_t tdb_find_lock_hash(struct tdb_context *tdb, TDB_DATA key, u32 hash, int locktype,tdb_find_lock_hash3135,86991
+static int tdb_update_hash(struct tdb_context *tdb, TDB_DATA key, u32 hash, TDB_DATA dbuf)tdb_update_hash3152,87448
+TDB_DATA tdb_fetch(struct tdb_context *tdb, TDB_DATA key)tdb_fetch3186,88345
+int tdb_parse_record(struct tdb_context *tdb, TDB_DATA key,tdb_parse_record3221,89498
+static int tdb_exists_hash(struct tdb_context *tdb, TDB_DATA key, u32 hash)tdb_exists_hash3252,90318
+int tdb_exists(struct tdb_context *tdb, TDB_DATA key)tdb_exists3262,90559
+int tdb_do_delete(struct tdb_context *tdb, tdb_off_t rec_ptr, struct list_struct*rec)tdb_do_delete3269,90755
+static int tdb_count_dead(struct tdb_context *tdb, u32 hash)tdb_count_dead3303,91707
+static int tdb_purge_dead(struct tdb_context *tdb, u32 hash)tdb_purge_dead3328,92156
+static int tdb_delete_hash(struct tdb_context *tdb, TDB_DATA key, u32 hash)tdb_delete_hash3364,92804
+int tdb_delete(struct tdb_context *tdb, TDB_DATA key)tdb_delete3416,93970
+static tdb_off_t tdb_find_dead(struct tdb_context *tdb, u32 hash,tdb_find_dead3425,94166
+int tdb_store(struct tdb_context *tdb, TDB_DATA key, TDB_DATA dbuf, int flag)tdb_store3456,94850
+int tdb_append(struct tdb_context *tdb, TDB_DATA key, TDB_DATA new_dbuf)tdb_append3595,98374
+const char *tdb_name(struct tdb_context *tdb)tdb_name3640,99310
+int tdb_fd(struct tdb_context *tdb)tdb_fd3650,99530
+tdb_log_func tdb_log_fn(struct tdb_context *tdb)tdb_log_fn3659,99695
+int tdb_get_seqnum(struct tdb_context *tdb)tdb_get_seqnum3675,100215
+int tdb_hash_size(struct tdb_context *tdb)tdb_hash_size3683,100347
+size_t tdb_map_size(struct tdb_context *tdb)tdb_map_size3688,100426
+int tdb_get_flags(struct tdb_context *tdb)tdb_get_flags3693,100499
+void tdb_enable_seqnum(struct tdb_context *tdb)tdb_enable_seqnum3702,100623
+static struct tdb_context *tdbs = NULL;tdbs3710,100795
+static unsigned int default_tdb_hash(TDB_DATA *key)default_tdb_hash3714,100889
+static int tdb_new_database(struct tdb_context *tdb, int hash_size)tdb_new_database3728,101313
+static int tdb_already_open(dev_t device,tdb_already_open3773,102452
+struct tdb_context *tdb_open(const char *name, int hash_size, int tdb_flags,tdb_open3797,103081
+static void null_log_fn(struct tdb_context *tdb, enum tdb_debug_level level, const char *fmt, ...)null_log_fn3805,103435
+struct tdb_context *tdb_open_ex(const char *name, int hash_size, int tdb_flags,tdb_open_ex3810,103540
+void tdb_set_max_dead(struct tdb_context *tdb, int max_dead)tdb_set_max_dead4007,109060
+int tdb_close(struct tdb_context *tdb)tdb_close4017,109235
+void tdb_set_logging_function(struct tdb_context *tdb,tdb_set_logging_function4052,109810
+void *tdb_get_logging_private(struct tdb_context *tdb)tdb_get_logging_private4058,109972
+int tdb_reopen(struct tdb_context *tdb)tdb_reopen4065,110209
+int tdb_reopen_all(int parent_longlived)tdb_reopen_all4117,111678
+
+bb_compat.c,608
+errcode_t badblocks_list_create(badblocks_list *ret, int size)badblocks_list_create29,482
+void badblocks_list_free(badblocks_list bb)badblocks_list_free34,599
+errcode_t badblocks_list_add(badblocks_list bb, blk_t blk)badblocks_list_add39,681
+int badblocks_list_test(badblocks_list bb, blk_t blk)badblocks_list_test44,789
+errcode_t badblocks_list_iterate_begin(badblocks_list bb,badblocks_list_iterate_begin49,893
+int badblocks_list_iterate(badblocks_iterate iter, blk_t *blk)badblocks_list_iterate55,1045
+void badblocks_list_iterate_end(badblocks_iterate iter)badblocks_list_iterate_end60,1163
+
+valid_blk.c,97
+int ext2fs_inode_has_valid_blocks(struct ext2_inode *inode)ext2fs_inode_has_valid_blocks27,462

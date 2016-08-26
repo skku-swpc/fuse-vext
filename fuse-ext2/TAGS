@@ -1,0 +1,232 @@
+
+do_probe.c,105
+#define VOLNAME_SIZE_MAX VOLNAME_SIZE_MAX23,944
+int do_probe (struct extfs_data *opts)do_probe25,973
+
+op_fgetattr.c,101
+int op_fgetattr (const char *path, struct stat *stbuf, struct fuse_file_info *fi)op_fgetattr23,944
+
+op_write.c,217
+size_t do_write (ext2_file_t efile, const char *buf, size_t size, off_t offset)do_write25,1009
+int op_write (const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi)op_write73,2095
+
+op_release.c,225
+static void release_callback (struct ext2_inode *inode, int flags)release_callback23,944
+int do_release (ext2_file_t efile)do_release29,1124
+int op_release (const char *path, struct fuse_file_info *fi)op_release48,1383
+
+op_chown.c,70
+int op_chown (const char *path, uid_t uid, gid_t gid)op_chown23,944
+
+op_chmod.c,61
+int op_chmod (const char *path, mode_t mode)op_chmod23,944
+
+op_getattr.c,72
+int op_getattr (const char *path, struct stat *stbuf)op_getattr23,944
+
+op_truncate.c,164
+int op_truncate(const char *path, off_t length)op_truncate23,944
+int op_ftruncate(const char *path, off_t length, struct fuse_file_info *fi)op_ftruncate60,1608
+
+do_killfilebyinode.c,231
+static int release_blocks_proc (ext2_filsys fs, blk_t *blocknr, int blockcnt, void *private)release_blocks_proc23,944
+int do_killfilebyinode (ext2_filsys e2fs, ext2_ino_t ino, struct ext2_inode *inode)do_killfilebyinode41,1245
+
+op_link.c,66
+int op_link (const char *source, const char *dest)op_link23,944
+
+op_create.c,472
+int do_modetoext2lag (mode_t mode)do_modetoext2lag23,944
+static inline int old_valid_dev(dev_t dev)old_valid_dev43,1381
+static inline __u16 old_encode_dev(dev_t dev)old_encode_dev48,1475
+static inline __u32 new_encode_dev(dev_t dev)new_encode_dev53,1566
+int do_create (ext2_filsys e2fs, const char *path, mode_t mode, dev_t dev, const char *fastsymlink)do_create60,1742
+int op_create (const char *path, mode_t mode, struct fuse_file_info *fi)op_create171,4557
+
+do_fillstatbuf.c,258
+static inline dev_t old_decode_dev(__u16 val)old_decode_dev23,944
+static inline dev_t new_decode_dev(__u32 dev)new_decode_dev28,1041
+void do_fillstatbuf (ext2_filsys e2fs, ext2_ino_t ino, struct ext2_inode *inode, struct stat *st)do_fillstatbuf35,1221
+
+op_destroy.c,51
+void op_destroy (void *userdata)op_destroy23,944
+
+op_flush.c,75
+int op_flush (const char *path, struct fuse_file_info *fi)op_flush23,944
+
+op_readdir.c,558
+struct dir_walk_data {dir_walk_data23,944
+	char *buf;buf24,967
+	fuse_fill_dir_t filler;filler25,979
+#define _USE_DIR_ITERATE2_USE_DIR_ITERATE228,1008
+static int walk_dir2 (ext2_ino_t dir, int   entry, struct ext2_dir_entry *dirent, int offset, int blocksize, char *buf, void *vpsid)walk_dir230,1059
+static int walk_dir (struct ext2_dir_entry *de, int offset, int blocksize, char *buf, void *priv_data)walk_dir62,2095
+int op_readdir (const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi)op_readdir87,2687
+
+fuse-ext2.probe.c,317
+static const char *HOME = "http://sourceforge.net/projects/fuse-ext2/";HOME23,944
+static const char *usage_msg =usage_msg25,1017
+static void usage (void)usage38,1313
+static int parse_options (int argc, char *argv[], struct extfs_data *opts)parse_options43,1412
+int main (int argc, char *argv[])main103,2757
+
+op_rename.c,218
+		struct ext2_dir_entry *dirent,dirent25,1045
+static int do_fix_dotdot(ext2_filsys e2fs, ext2_ino_t ino, ext2_ino_t dotdot)do_fix_dotdot46,1541
+int op_rename(const char *source, const char *dest)op_rename61,1858
+
+op_fsync.c,89
+int op_fsync (const char *path, int datasync, struct fuse_file_info *fi)op_fsync23,944
+
+op_read.c,111
+int op_read (const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi)op_read23,944
+
+do_check.c,207
+int do_check (const char *path)do_check23,944
+int do_check_split (const char *path,char **dirname,char **basename)do_check_split39,1281
+void free_split (char *dirname, char *basename)free_split61,1708
+
+op_mknod.c,72
+int op_mknod (const char *path, mode_t mode, dev_t dev)op_mknod23,944
+
+op_readlink.c,78
+int op_readlink (const char *path, char *buf, size_t size)op_readlink23,944
+
+op_init.c,60
+void * op_init (struct fuse_conn_info *conn)op_init23,944
+
+op_rmdir.c,281
+struct rmdir_st {rmdir_st23,944
+	ext2_ino_t parent;parent24,962
+	int empty;empty25,982
+		       struct ext2_dir_entry *dirent,dirent30,1101
+int do_check_empty_dir(ext2_filsys e2fs, ext2_ino_t ino)do_check_empty_dir52,1673
+int op_rmdir (const char *path)op_rmdir71,1993
+
+op_statfs.c,519
+static int test_root (int a, int b)test_root23,944
+static int ext2_group_spare (int group)ext2_group_spare34,1053
+static int ext2_bg_has_super (ext2_filsys e2fs, int group)ext2_bg_has_super42,1209
+static int ext2_bg_num_gdb (ext2_filsys e2fs, int group)ext2_bg_num_gdb51,1417
+#define EXT2_BLOCKS_COUNT(EXT2_BLOCKS_COUNT60,1623
+#define EXT2_RBLOCKS_COUNT(EXT2_RBLOCKS_COUNT61,1715
+#define EXT2_FBLOCKS_COUNT(EXT2_FBLOCKS_COUNT62,1812
+int op_statfs (const char *path, struct statvfs *buf)op_statfs64,1910
+
+op_unlink.c,50
+int op_unlink (const char *path)op_unlink23,944
+
+op_symlink.c,80
+int op_symlink (const char *sourcename, const char *destname)op_symlink23,944
+
+op_mkdir.c,61
+int op_mkdir (const char *path, mode_t mode)op_mkdir23,944
+
+op_utimens.c,81
+int op_utimens (const char *path, const struct timespec tv[2])op_utimens23,944
+
+do_readinode.c,236
+int do_readinode (ext2_filsys e2fs, const char *path, ext2_ino_t *ino, struct ext2_inode *inode)do_readinode23,944
+int do_readvnode (ext2_filsys e2fs, const char *path, ext2_ino_t *ino, struct ext2_vnode **vnode)do_readvnode39,1387
+
+op_open.c,157
+ext2_file_t do_open (ext2_filsys e2fs, const char *path, int flags)do_open23,944
+int op_open (const char *path, struct fuse_file_info *fi)op_open53,1521
+
+fuse-ext2.h,1193
+#define FUSEEXT2_H_FUSEEXT2_H_21,885
+#define EXT2_FILE_SHARED_INODE EXT2_FILE_SHARED_INODE46,1588
+#define PATH_MAX PATH_MAX50,1754
+#define EXT2FS_FILE(EXT2FS_FILE53,1784
+#define FLUSH_BITMAPS_TIMEOUT FLUSH_BITMAPS_TIMEOUT55,1908
+struct extfs_data {extfs_data57,1942
+	unsigned char debug;debug58,1962
+	unsigned char silent;silent59,1984
+	unsigned char force;force60,2007
+	unsigned char readonly;readonly61,2029
+	time_t last_flush;last_flush62,2054
+	char *mnt_point;mnt_point63,2074
+	char *options;options64,2092
+	char *device;device65,2108
+	char *volname;volname66,2123
+	ext2_filsys e2fs;e2fs67,2139
+static inline ext2_filsys current_ext2fs(void)current_ext2fs70,2162
+static inline void debug_printf (const char *function, char *file, int line, const char *fmt, ...)debug_printf84,2522
+#define debugf(debugf99,2954
+static inline void debug_main_printf (const char *function, char *file, int line, const char *fmt, ...)debug_main_printf103,3036
+#define debugf_main(debugf_main113,3294
+#define debugf(debugf119,3412
+#define debugf_main(debugf_main120,3449
+static inline struct ext2_inode *vnode2inode(struct ext2_vnode *vnode) {vnode2inode130,3656
+
+op_access.c,60
+int op_access (const char *path, int mask)op_access23,944
+
+vnode_hash.c,902
+#define VNODE_HASH_SIZE VNODE_HASH_SIZE25,969
+#define VNODE_HASH_MASK VNODE_HASH_MASK26,997
+#undef debugfdebugf29,1067
+#define debugf(debugf30,1081
+struct ext2_vnode {ext2_vnode33,1127
+	struct ext2_inode inode;inode34,1147
+	ext2_filsys e2fs;e2fs35,1173
+	ext2_ino_t ino;ino36,1192
+	int count;count37,1209
+	struct ext2_vnode **pprevhash,*nexthash;pprevhash38,1221
+	struct ext2_vnode **pprevhash,*nexthash;nexthash38,1221
+static struct ext2_vnode *ht_head[VNODE_HASH_SIZE];ht_head41,1267
+static inline struct ext2_vnode * vnode_alloc (void)vnode_alloc43,1320
+static inline void vnode_free (struct ext2_vnode *vnode)vnode_free48,1443
+static inline int vnode_hash_key (ext2_filsys e2fs, ext2_ino_t ino)vnode_hash_key53,1519
+struct ext2_vnode * vnode_get (ext2_filsys e2fs, ext2_ino_t ino)vnode_get58,1638
+int vnode_put (struct ext2_vnode *vnode, int dirty)vnode_put95,2509
+
+fuse-ext2.c,697
+static const char *HOME = "http://sourceforge.net/projects/fuse-ext2/";HOME23,944
+static char def_opts[] = "allow_other,local,noappledouble,";def_opts26,1039
+static char def_opts[] = "";def_opts28,1106
+static const char *usage_msg =usage_msg31,1143
+static int strappend (char **dest, const char *append)strappend48,1571
+static void usage (void)usage81,1989
+static int parse_options (int argc, char *argv[], struct extfs_data *opts)parse_options86,2088
+static char * parse_mount_options (const char *orig_opts, struct extfs_data *opts)parse_mount_options171,3854
+static const struct fuse_operations ext2fs_ops = {ext2fs_ops279,6372
+int main (int argc, char *argv[])main318,7451
+
+ext2-fileio.c,2198
+#define EXT2_FILE_SHARED_INODE EXT2_FILE_SHARED_INODE21,347
+struct ext2_file {ext2_file23,386
+	errcode_t		magic;magic24,405
+	ext2_filsys 		fs;fs25,424
+	ext2_ino_t		ino;ino26,443
+	struct ext2_inode	*inode;inode27,461
+	int 			flags;flags28,488
+	__u64			pos;pos29,503
+	blk_t			blockno;blockno30,517
+	blk_t			physblock;physblock31,535
+	char 			*buf;buf32,555
+#define BMAP_BUFFER BMAP_BUFFER35,574
+errcode_t ext2fs_file_open2(ext2_filsys fs, ext2_ino_t ino,ext2fs_file_open237,623
+errcode_t ext2fs_file_open(ext2_filsys fs, ext2_ino_t ino,ext2fs_file_open94,1944
+ext2_filsys ext2fs_file_get_fs(ext2_file_t file)ext2fs_file_get_fs103,2208
+errcode_t ext2fs_file_flush(ext2_file_t file)ext2fs_file_flush114,2421
+static errcode_t sync_buffer_position(ext2_file_t file)sync_buffer_position152,3272
+#define DONTFILL DONTFILL176,3886
+static errcode_t load_buffer(ext2_file_t file, int dontfill)load_buffer177,3905
+errcode_t ext2fs_file_close2 (ext2_file_t file, void (*close_callback) (struct ext2_inode *inode, int flags))ext2fs_file_close2204,4501
+errcode_t ext2fs_file_close(ext2_file_t file)ext2fs_file_close225,5000
+errcode_t ext2fs_file_read(ext2_file_t file, void *buf,ext2fs_file_read230,5091
+errcode_t ext2fs_file_write(ext2_file_t file, const void *buf,ext2fs_file_write273,5961
+errcode_t ext2fs_file_llseek(ext2_file_t file, __u64 offset,ext2fs_file_llseek321,6934
+errcode_t ext2fs_file_lseek(ext2_file_t file, ext2_off_t offset,ext2fs_file_lseek341,7372
+errcode_t ext2fs_file_get_lsize(ext2_file_t file, __u64 *ret_size)ext2fs_file_get_lsize358,7765
+ext2_off_t ext2fs_file_get_size(ext2_file_t file)ext2fs_file_get_size369,8043
+struct truncate_st {truncate_st380,8215
+	__u32 fileblkcount;fileblkcount381,8236
+	__u32 newblksize;newblksize382,8257
+	__u8 okind;okind383,8276
+	__u8 okdind;okdind384,8289
+	__u8 oktind;oktind385,8303
+static int truncate_blocks (ext2_filsys fs, blk_t *blocknr, int blockcnt, void *private)truncate_blocks388,8321
+errcode_t ext2fs_file_set_lsize(ext2_file_t file, __u64 size)ext2fs_file_set_lsize437,9344
+errcode_t ext2fs_file_set_size(ext2_file_t file, ext2_off_t size)ext2fs_file_set_size483,10623

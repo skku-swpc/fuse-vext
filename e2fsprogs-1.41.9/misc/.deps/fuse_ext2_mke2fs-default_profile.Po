@@ -1,0 +1,1 @@
+fuse_ext2_mke2fs-default_profile.o: default_profile.c

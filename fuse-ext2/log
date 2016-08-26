@@ -1,0 +1,6 @@
+Binary file cscope.in.out matches
+cscope.out:ENABLE_DEBUG
+cscope.out:ENABLE_DEBUG
+fuse-ext2.h:#if ENABLE_DEBUG
+fuse-ext2.h:#else /* ENABLE_DEBUG */
+fuse-ext2.h:#endif /* ENABLE_DEBUG */

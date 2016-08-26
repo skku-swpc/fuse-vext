@@ -1,0 +1,116 @@
+Fuse-ext2 is a EXT2 Filesystem support for FUSE.
+
+This software is based on both ntfs-3g, and ext2fuse packages.
+
+
+Project Name
+------------
+A Paravirtualized File System for Accelerating File I/O
+
+
+Contribution
+------------
+This file system is a paravirtualized file system based on fuse-ext2 
+for improving I/O performance of the virtualized systems.
+A major role of this file system is to bypass guest I/O stack. 
+When an application requests file I/O, a paravirtualized file system passes the I/O request 
+to the host instead of the block layer of guest kernel, and waits for completion. 
+After the request is processed in the host, the file system takes the result and acts the same 
+as if it was handled in the guest’s block layer. 
+A file system is the first step of handling a file I/O requested from user applications. 
+If I/O requests are passed to the host at this point, the rest of the guest I/O stack can be bypassed. 
+Compared to the I/O process in a non-virtualized system, duplicated I/O stacks are 
+one major cause of degrading performance in a virtual machine. 
+Especially, in case the virtual machine utilizes image files as block devices, 
+merging and sorting operations of an I/O scheduler may give negative effects to the I/O process in the host. 
+It is because the consecutive disk blocks from a viewpoint of the guest are no longer consecutive in the host. 
+It depends on the file system type of both the host and the guest as well as the format of the disk image file. 
+Consequently, eliminating a redundant I/O stack on the guest side can improve file I/O performance.
+
+
+Dependencies
+------------
+
+  Fuse-ext2 requires at least Fuse version 2.6.0 for linux, for max os latest
+version of macfuse would be fine (2.0.3).
+
+- Linux:
+	Fuse from http://fuse.sourceforge.net/
+
+- Mac OS:
+	Mac Fuse from http://code.google.com/p/macfuse/
+
+
+Build
+-----	
+
+- Linux:
+	$ ./autogen.sh
+	$ ./configure
+	$ make
+	$ sudo make install
+
+	You can use checkinstall or some other equivalent tool to generate install
+	package for your distribution.
+
+- Mac OS:
+	Standart build:
+	$ ./autogen.sh
+	$ ./configure
+	$ make
+	$ sudo make install
+
+	Universal build:
+	$ ./autogen.sh
+	$ CFLAGS="-arch i386 -arch ppc" ./configure --disable-dependency-tracking
+	$ make
+	$ sudo make install
+	
+	Tiger (Universal) build:
+	$ export MACOSX_DEPLOYMENT_TARGET="10.4"
+	$ export OSX_SDK="/Developer/SDKs/MacOSX10.4u.sdk"
+	$ export OSX_CFLAGS="-isysroot $OSX_SDK -arch ppc -arch i386"
+	$ export OSX_LDFLAGS="-Wl,-syslibroot,$OSX_SDK -arch ppc -arch i386"
+	$ ./autogen.sh
+	$ CFLAGS="$OSX_CFLAGS" CXXFLAGS="$OSX_CFLAGS" LDFLAGS="$OSX_LDFLAGS" ./configure --disable-dependency-tracking
+	$ make
+	$ sudo make install
+	
+	Generating package:
+	$ make package
+
+Usage
+-----
+
+Usage:    fuse-ext2 <device|image_file> <mount_point> [-o option[,...]]
+
+Options:  ro, force, allow_others
+          Please see details in the manual.
+
+Example:  fuse-ext2 /dev/sda1 /mnt/sda1
+
+Bugs
+----
+
+there are no known bugs for read-only mode, read only mode should be ok for every one.
+
+altough, write support is available (and it is pretty stable) please do not mount your
+filesystems with write support unless you do not have anything to loose.
+
+please send output the output of below command while reporting bugs.
+
+$ /usr/local/bin/fuse-ext2 -v /dev/path /mnt/point -o debug
+
+Labels
+------
+
+please do not use comma ',' in partition labels.
+
+wrong: e2label /dev/disk0s3 "linux,ext3"
+
+correct: e2label /dev/disk0s3 "linux-ext3"
+
+Contact
+-------
+
+Alper Akcan <alper.akcan@gmail.com>

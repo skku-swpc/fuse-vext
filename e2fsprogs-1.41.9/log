@@ -1,0 +1,222 @@
+closefs.c:		printf("Writing %d bytes starting at %d\n",
+Binary file cscope.in.out matches
+cscope.out:, 1, 2, "print_all",
+csum.c:void print_csum(const char *msg, ext2_filsys fs, dgrp_t group)
+csum.c:	printf("%s: UUID %016Lx%016Lx(%04x), grp %u(%04x): %04x=%04x\n",
+csum.c:	print_csum("csum0000", fs, 0);
+csum.c:		printf("checksum for group 0 should be %04x\n", csum_known);
+csum.c:	print_csum("csum0001", fs, 1);
+csum.c:		printf("checksums for different groups shouldn't match\n");
+csum.c:	print_csum("csumffff", fs, 2);
+csum.c:		printf("checksums for different groups shouldn't match\n");
+csum.c:	print_csum("csum_set", fs, 0);
+csum.c:		printf("checksums should not depend on checksum field\n");
+csum.c:		printf("checksums should verify against gd_checksum\n");
+csum.c:	print_csum("new_uuid", fs, 0);
+csum.c:		printf("checksums for different filesystems shouldn't match\n");
+csum.c:	print_csum("csum_new", fs, 0);
+csum.c:	print_csum("csum_blk", fs, 0);
+csum.c:		printf("checksums for different data shouldn't match\n");
+extent.c:	printf("header: magic=%x entries=%u max=%u depth=%u generation=%u\n",
+extent.c:	printf("index: block=%u leaf=%u leaf_hi=%u unused=%u\n",
+extent.c:	printf("extent: block=%u-%u len=%u start=%u start_hi=%u\n",
+extent.c:static void dbg_print_extent(char *desc, struct ext2fs_extent *extent)
+extent.c:		printf("%s: ", desc);
+extent.c:	printf("extent: lblk %llu--%llu, len %u, pblk %llu, flags: ",
+extent.c:#define dbg_print_extent(desc, ex) do { } while (0)
+extent.c:			printf("<<<< OP = %s\n",
+extent.c:			printf("<<<< OP = %s\n",
+extent.c:		printf("<<<< OP = %s\n",
+extent.c:		printf("Down to level %d/%d, end_blk=%llu\n",
+extent.c:	printf("(Left %d)\n", path->left);
+extent.c:		printf("leaf level %d greater than tree depth %d\n",
+extent.c:	printf("goto extent ino %u, level %d, %llu\n", handle->ino,
+extent.c:	dbg_print_extent("root", &extent);
+extent.c:		dbg_print_extent("next", &extent);
+extent.c:		dbg_print_extent("prev", &extent);
+extent.c:		dbg_print_extent("down", &extent);
+extent.c:	printf("extent replace: %u ", handle->ino);
+extent.c:	dbg_print_extent(0, extent);
+extent.c:	printf("splitting node at level %d\n", handle->level);
+extent.c:		printf("parent level %d full; splitting it too\n",
+extent.c:	printf("will copy out %d of %d entries at level %d\n",
+extent.c:		printf("Nothing to copy to new block!\n");
+extent.c:	printf("will copy to new node at block %lu\n",
+extent.c:	printf("extent insert: %u ", handle->ino);
+extent.c:	dbg_print_extent(0, extent);
+extent.c:			printf("node full (level %d) - splitting\n",
+extent.c:	printf("set_bmap ino %u log %lld phys %lld flags %d\n",
+extent.c:				printf("block %llu already unmapped\n",
+extent.c:		dbg_print_extent("set_bmap: next_extent",
+extent.c:		dbg_print_extent("set_bmap: prev_extent",
+extent.c:		printf("physical block (at %llu) unchanged\n", logical);
+extent.c:		printf("mapping unmapped logical block %llu\n", logical);
+extent.c:		printf("(re/un)mapping only block in extent\n");
+extent.c:		printf("(re/un)mapping last block in extent\n");
+extent.c:		printf("(re/un)mapping first block in extent\n");
+extent.c:		printf("(re/un)mapping in middle of extent\n");
+extent.c:			printf("extent delete %u ", handle->ino);
+extent.c:			dbg_print_extent(0, &extent);
+extent.c:			printf("Current inode is %d\n", current_ino);
+extent.c:			printf("No current inode\n");
+extent.c:	printf("Loaded inode %d\n", current_ino);
+extent.c:	dbg_print_extent(0, &extent);
+extent.c:		fprintf(stderr, "Usage: %s %s\n", argv[0], usage);
+extent.c:		fprintf(stderr, "usage: %s %s\n", cmd, usage);
+extent.c:		fprintf(stderr, "Usage: %s %s\n", cmd, usage);
+extent.c:void do_print_all(int argc, char **argv)
+extent.c:	if (common_extent_args_process(argc, argv, 1, 2, "print_all",
+extent.c:			fprintf(stderr, "Usage: %s %s\n", argv[0], usage);
+extent.c:	dbg_print_extent(0, &extent);
+extent.c:		dbg_print_extent(0, &extent);
+extent.c:	dbg_print_extent(0, &extent);
+extent.c:	printf("Current handle location: %d/%d (max: %d, bytes %d), level %d/%d\n",
+extent.c:	printf("\tmax lblk: %llu, max pblk: %llu\n", info.max_lblk,
+extent.c:	printf("\tmax_len: %u, max_uninit_len: %u\n", info.max_len,
+finddev.c:		sprintf(path, "%s/%s", dirname, dp->d_name);
+finddev.c:		printf("Scanning directory %s\n", current->name);
+finddev.c:		fprintf(stderr, "Usage: %s device_number\n", argv[0]);
+finddev.c:		fprintf(stderr, "\t: %s major minor\n", argv[0]);
+finddev.c:			fprintf(stderr, errmsg, "device number", argv[1]);
+finddev.c:			fprintf(stderr, errmsg, "major number", argv[1]);
+finddev.c:			fprintf(stderr, errmsg, "minor number", argv[2]);
+finddev.c:		printf("Looking for device 0x%04x (%d:%d)\n", device,
+finddev.c:		printf("Found device!  %s\n", devname);
+finddev.c:		printf("Couldn't find device.\n");
+getsize.c:		fprintf(stderr, "Usage: %s device\n", argv[0]);
+getsize.c:	printf("Device %s has %u 1k blocks.\n", argv[1], blocks);
+icount.c:	sprintf(out,
+icount.c:	sprintf(fn, "%s/%s-icount-XXXXXX", tdb_dir, uuid);
+icount.c:	printf("Icount allocated %u entries, %d bytes.\n",
+icount.c:		printf("Reallocating icount %u entries...\n", new_size);
+icount.c:	printf("Non-cursor get_icount_el: %u\n", ino);
+icount.c:		fprintf(out, "%s: count > size\n", bad);
+icount.c:			fprintf(out, "%s: list[%d].ino=%u, list[%d].ino=%u\n",
+icount.c:			printf("icount_fetch(%u) = ", pc->ino);
+icount.c:			printf("icount_store(%u, %u) = ", pc->ino, pc->arg);
+icount.c:			printf("icount_increment(%u) = ", pc->ino);
+icount.c:			printf("icount_decrement(%u) = ", pc->ino);
+icount.c:		printf("%u (%s)\n", result, (result == pc->expected) ?
+icount.c:	printf("icount size is %u\n", ext2fs_get_icount_size(icount));
+icount.c:	printf("Standard icount run:\n");
+icount.c:	printf("\nMultiple bitmap test:\n");
+icount.c:	printf("\nResizing icount:\n");
+icount.c:	printf("\nStandard icount run with tdb:\n");
+icount.c:	printf("\nMultiple bitmap test with tdb:\n");
+icount.c:		printf("FAILED!\n");
+initialize.c:	printf("max_blocks %lu, rsv_groups = %lu, rsv_gdb = %u\n",
+inode_io.c:	sprintf(data->name, "%u:%d", ino, ino_unique++);
+ismounted.c:			printf("Bogus entry in %s!  (%s does not exist)\n",
+ismounted.c:		printf("Bogus entry in %s!  (%s not mounted on %s)\n",
+ismounted.c:		fprintf(stderr, "Usage: %s device\n", argv[0]);
+ismounted.c:	printf("Device %s reports flags %02x\n", argv[1], mount_flags);
+ismounted.c:		printf("\t%s is apparently in use.\n", argv[1]);
+ismounted.c:		printf("\t%s is mounted.\n", argv[1]);
+ismounted.c:		printf("\t%s is a swap device.\n", argv[1]);
+ismounted.c:		printf("\t%s is read-only.\n", argv[1]);
+ismounted.c:		printf("\t%s is the root filesystem.\n", argv[1]);
+ismounted.c:		printf("\t%s is mounted on %s.\n", argv[1], mntpt);
+jfs_compat.h:#define printk printf
+jfs_compat.h:		printf ("Assertion failure in %s() at %s line %d: "	\
+kernel-jbd.h:			printk (KERN_DEBUG "(%s, %d): %s: ",		\
+kernel-jbd.h:		  	printk (f, ## a);				\
+kernel-jbd.h:		printk (KERN_EMERG					\
+kernel-jbd.h:	printk (KERN_ERR "JBD unimplemented function " __FUNCTION__); \
+kernel-jbd.h:        printk("kernel BUG at %s:%d!\n", __FILE__, __LINE__); \
+kernel-jbd.h:#define print_buffer_fields(bh)	do {} while (0)
+kernel-jbd.h:#define print_buffer_trace(bh)	do {} while (0)
+Binary file libext2fs.a matches
+Binary file libext2fs_a-finddev.o matches
+Binary file libext2fs_a-icount.o matches
+Binary file libext2fs_a-inode_io.o matches
+Binary file libext2fs_a-tdb.o matches
+Binary file libext2fs_a-test_io.o matches
+Binary file libext2fs_a-unix_io.o matches
+Binary file libext2fs_a-version.o matches
+llseek.c:	fprintf(stderr, "[%s]ERROR!\n", __FUNCTION__);
+Makefile:	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+Makefile:	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+Makefile:	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+Makefile.in:	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+Makefile.in:	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+Makefile.in:	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+mkjournal.c:		fprintf(stderr, "Usage: %s filesystem\n", argv[0]);
+mkjournal.c:		printf("Warning, had trouble writing out superblocks.\n");
+namei.c:	printf("follow_link: root=%lu, dir=%lu, inode=%lu, lc=%d\n",
+namei.c:	printf("open_namei: root=%lu, dir=%lu, path=%*s, lc=%d\n",
+namei.c:	printf("open_namei: (link_count=%d) returns %lu\n",
+pvl_blk.c:void printbuf(void *buf, size_t size) {
+pvl_blk.c:		fprintf(stderr, "%02X", ch[i]);
+pvl_blk.c:	//fprintf(stderr, "addr=%lx, idx=%lx(%ld)\n", addr, idx, idx);
+pvl_blk.c:		fprintf(stderr, "vpaddr:%lx ->", paddr);
+pvl_blk.c:		fprintf(stderr, " ppaddr:%lx\n", paddr);
+pvl_blk.c:			fprintf(stderr, "queue is full tail:%d\n", q->tail);
+pvl_blk.c:		fprintf(stderr, "undone entry. idx:%d\n", index);
+pvl_blk.c:	//fprintf(stderr, "\nQ index:%d, head:%d\n", index, q->head);
+pvl_blk.c:	//fprintf(stderr, "read!, addr:%p(%lX), size:%ld. ", buffer, args[1], size);
+pvl_blk.c:		//fprintf(stderr, "(%d,%d,%p)", size-excess, excess, vaddr2);
+pvl_blk.c:	//fprintf(stderr, ", rtn:%ld\n", rtn);
+pvl_blk.c:	//printbuf(buffer, 12);
+pvl_blk.c:		fprintf(stderr, "ERROR!!! read ERROR!!\n");
+pvl_blk.c:	//fprintf(stderr, "write!, addr:%p(%lX), size:%ld. ", buffer, args[1], size);
+pvl_blk.c:		//fprintf(stderr, "(%d, %d, %p)", size-excess, excess, vaddr2);
+pvl_blk.c:	//fprintf(stderr, ", rtn:%ld\n", rtn);
+pvl_blk.c:		fprintf(stderr, "ERROR!!! write ERROR!!\n");
+pvl_blk.c:	//printbuf(buffer, 12);
+pvl_blk.c:	//fprintf(stderr, "(off:%ld)", offset);
+pvl_blk.c:		fprintf(stderr, "ERROR!!! lseek ERROR!!, rtn:%ld\n", cmd->result);
+res_gdt.c:		printf("reading GDT dindir %u\n", dindir_blk);
+res_gdt.c:		printf("allocated GDT dindir %u\n", dindir_blk);
+res_gdt.c:			printf("added primary GDT block %u at %u[%u]\n",
+res_gdt.c:			printf("reading primary GDT block %u\n", gdt_blk);
+res_gdt.c:			printf("bad primary GDT %u != %u at %u[%u]\n",
+res_gdt.c:				printf("added backup GDT %u grp %u@%u[%u]\n",
+res_gdt.c:				printf("bad backup GDT %u != %u at %u[%u]\n",
+res_gdt.c:			printf("writing primary GDT block %u\n", gdt_blk);
+res_gdt.c:	printf("inode.i_blocks = %u, i_size = %u\n", inode.i_blocks,
+TAGS:void print_csum(const char *msg, ext2_filsys fs, dgrp_t group)print_csum148,3700
+TAGS:static void dbg_print_extent(char *desc, struct ext2fs_extent *extent)dbg_print_extent105,2032
+TAGS:#define dbg_print_extent(dbg_print_extent128,2755
+TAGS:void do_print_all(int argc, char **argv)do_print_all1895,46595
+TAGS:int tdb_printfreelist(struct tdb_context *tdb)tdb_printfreelist3013,84145
+tdb.c:/** Use gcc attribute to check printf fns.  a1 is the 1-based index of
+tdb.c:#define PRINTF_ATTRIBUTE(a1, a2) __attribute__ ((format (__printf__, a1, a2)))
+tdb.c: * current context, also takes doubly-parenthesized print-style
+tdb.c:		printf("ERROR: failed to read record at %u\n", offset);
+tdb.c:	printf(" rec: hash=%d offset=0x%08x next=0x%08x rec_len=%d "
+tdb.c:		printf("ERROR: failed to read tailer at %u\n", tailer_ofs);
+tdb.c:		printf("ERROR: tailer does not match record! tailer=%u totalsize=%u\n",
+tdb.c:		printf("hash=%d\n", i);
+tdb.c:	printf("freelist:\n");
+tdb.c:int tdb_printfreelist(struct tdb_context *tdb)
+tdb.c:	printf("freelist top=[0x%08x]\n", rec_ptr );
+tdb.c:			printf("bad magic 0x%08x in free list\n", rec.magic);
+tdb.c:		printf("entry offset=[0x%08x], rec.rec_len = [0x%08x (%d)] (end = 0x%08x)\n",
+tdb.c:	printf("total rec_len = [0x%08x (%d)]\n", (int)total_free,
+tdb.h:/** Use gcc attribute to check printf fns.  a1 is the 1-based index of
+tdb.h:#define PRINTF_ATTRIBUTE(a1, a2) __attribute__ ((format (__printf__, a1, a2)))
+tdb.h:#define tdb_printfreelist ext2fs_tdb_printfreelist
+tdb.h:int tdb_printfreelist(struct tdb_context *tdb);
+test_io.c:	fprintf(f, "Contents of block %lu, checksum %08lu: \n", block, cksum);
+test_io.c:			fprintf(f, "%04x: ", i);
+test_io.c:		fprintf(f, "%02x%c", *cp, ((i % 16) == 15) ? '\n' : ' ');
+test_io.c:	fprintf(f, "Aborting due to I/O to block %lu\n", block);
+test_io.c:		fprintf(data->outfile,
+test_io.c:		fprintf(data->outfile,
+test_io.c:		fprintf(data->outfile,
+test_io.c:		fprintf(data->outfile,
+test_io.c:		fprintf(data->outfile,
+test_io.c:		fprintf(data->outfile,
+test_io.c:		fprintf(data->outfile, "Test_io: flush() returned %s\n",
+test_io.c:		fprintf(data->outfile, "Test_io: set_option(%s, %s) ",
+test_io.c:			fprintf(data->outfile, "returned %s\n",
+test_io.c:			fprintf(data->outfile, "not implemented\n");
+undo_io.c:		printf("Printing with key %ld data %x and size %d\n",
+unix_io.c:	printf("count=%d, size=%d, block=%lu, blk_size=%d, location=%llx\n",
+unix_io.c:			printf("Using cached block %lu\n", block);
+unix_io.c:		printf("Reading %d blocks starting at %lu\n", i, block);
+unix_io.c.bak:	printf("count=%d, size=%d, block=%lu, blk_size=%d, location=%llx\n",
+unix_io.c.bak:	printf("hello!\n");
+unix_io.c.bak:			printf("Using cached block %lu\n", block);
+unix_io.c.bak:		printf("Reading %d blocks starting at %lu\n", i, block);
+version.h: * version.h --- controls the version number printed by the e2fs

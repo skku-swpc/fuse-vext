@@ -1,0 +1,48 @@
+In file included from unix_io.c:58:0:
+pvl_blk.c: In function ‘pvl_enqueue’:
+pvl_blk.c:72:104: error: expected declaration specifiers before ‘)’ token
+pvl_blk.c:104:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+pvl_blk.c:134:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+pvl_blk.c:145:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+pvl_blk.c:177:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+pvl_blk.c:210:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+pvl_blk.c:224:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+pvl_blk.c:234:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:67:1: warning: empty declaration [enabled by default]
+unix_io.c:79:1: warning: empty declaration [enabled by default]
+unix_io.c:89:18: error: storage class specified for parameter ‘unix_open’
+unix_io.c:90:18: error: storage class specified for parameter ‘unix_close’
+unix_io.c:91:18: error: storage class specified for parameter ‘unix_set_blksize’
+unix_io.c:92:18: error: storage class specified for parameter ‘unix_read_blk’
+unix_io.c:94:18: error: storage class specified for parameter ‘unix_write_blk’
+unix_io.c:96:18: error: storage class specified for parameter ‘unix_flush’
+unix_io.c:97:18: error: storage class specified for parameter ‘unix_write_byte’
+unix_io.c:99:18: error: storage class specified for parameter ‘unix_set_option’
+unix_io.c:101:18: error: storage class specified for parameter ‘unix_get_stats’
+unix_io.c:102:13: error: storage class specified for parameter ‘reuse_cache’
+unix_io.c:104:18: error: storage class specified for parameter ‘unix_read_blk64’
+unix_io.c:106:18: error: storage class specified for parameter ‘unix_write_blk64’
+unix_io.c:117:33: error: storage class specified for parameter ‘struct_unix_manager’
+unix_io.c:117:15: error: parameter ‘struct_unix_manager’ is initialized
+unix_io.c:137:1: error: parameter ‘unix_io_manager’ is initialized
+unix_io.c:140:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:163:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:255:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:300:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:320:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:345:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:374:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:391:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:419:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:540:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:568:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:593:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:658:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:664:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:716:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:722:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:755:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+unix_io.c:773:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+pvl_blk.c:72:24: error: old-style parameter declarations in prototyped function definition
+unix_io.c:795:1: error: expected ‘{’ at end of input
+make: *** [libext2fs_a-unix_io.o] Error 1

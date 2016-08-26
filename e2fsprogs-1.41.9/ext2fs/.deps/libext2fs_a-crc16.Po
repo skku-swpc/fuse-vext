@@ -1,0 +1,6 @@
+libext2fs_a-crc16.o: crc16.c ../../e2fsprogs-1.41.9/ext2fs/ext2_types.h \
+ crc16.h
+
+../../e2fsprogs-1.41.9/ext2fs/ext2_types.h:
+
+crc16.h:
